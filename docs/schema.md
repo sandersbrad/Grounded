@@ -18,8 +18,9 @@ property_id | integer   | not null, foreign key (references properties)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-image_url   | string    | not null
+image_url   | string    | not null, unique
 property_id | integer   | not null, foreign key (references properties)
+type        | string    | not null
 
 ## properties
 column name | data type | details
