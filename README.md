@@ -13,8 +13,11 @@ Landed is a webapp desinged with an interface to allow users to invest in real e
 - [ ] Create sessions (log in)
 - [ ] Learn about crowd shared real estate
 - [ ] Evaluate risks
+- [ ] Find answers to frequently asked questions
+- [ ] See if they qualify
 - [ ] Browse a marketplace
 - [ ] Input income and credit score figures and get a maximum allowed investment
+- [ ] Invest in properties
 - [ ] Follow properties
 - [ ] Send inquiries
 - [ ] Search for properties by location
@@ -29,59 +32,46 @@ Landed is a webapp desinged with an interface to allow users to invest in real e
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
+### Phase 1: User Authentication, House Follows (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
+App Academy. I want to use e-mails as usernames and validate email address before allowing a user to sign up.  Setting up the mailer will also allow for a password reset option down the line. By the end of this phase, users will be able to log in and follow houses they are interested in. The most important part of this phase will
 be pushing the app to Heroku and ensuring that everything works before moving on
 to phase 2.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
+### Phase 2: Viewing Properties (~2 days)
+I will add API routes to serve property data as JSON, then add Backbone
 models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+phase, users will be able to view all properties and the properties they follow with all the relevant details (fake seeds) in place inside a single Backbone app.  Also implement a form for users to post properties they are interested in investing in through Landed.  
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: User Qualification and Education (~2 days)
+In this phase I will create an interactive page for users to toy around with figures and see what, if at all, they are qualified to invest.  I'll use third party libraries (ie D3) to graphically display results so they are easily readable to the user.  This section will also contain a short degree of questioning to determine qualification.  I'll also use this opportunity to add any risk evaluation content that is needed in this stage.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: User Homescreen (~1-2 days)
+I'll customize a logged-in user's page by displaying any properties they are watching in a sidebar.  I'll also have links to their user data (ie, qualifactions) and any other data that is relevant to a particular user.  
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Searching for Properties and more Graphical Analyses (~2 days)
+Allow users to search properties by location and price and also filter results.  Add more graphical data to show investment returns over time for a user.
+
 
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
+- [ ] Pop-up pages for user log-in and sign-up
+- [ ] Text message alerts
+- [ ] Responsive Design
+- [ ] Make listings shareable (facebook, email, etc)
+- [ ] Log in with facebook
+- [ ] Instant render search bar
 - [ ] Multiple sessions/session management
 - [ ] User avatars
-- [ ] Typeahead search bar
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

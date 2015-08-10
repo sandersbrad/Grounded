@@ -3,20 +3,19 @@
 ## Rails
 ### Models
 * User
-* Blog
-* Post
+* Property
+* FollowTable
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* BlogsController (create, new, show)
-* PostsController (create, new, show)
+* PropertiesController (create, new, show)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb
+* properties/new.html.erb
+* properties/show.html.erb
 
 ## Backbone
 ### Models
@@ -26,3 +25,4 @@
 ### Views
 
 ## Gems/Libraries
+Mailer

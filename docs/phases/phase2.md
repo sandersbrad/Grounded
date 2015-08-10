@@ -1,29 +1,26 @@
 # Phase 2: Viewing Blogs and Posts
 
 ## Rails
-### Models
+### Model
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+Api::PropertiesController (create, destroy, index, show)
 
 ### Views
-* blogs/show.json.jbuilder
+* properties/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Property
 
 ### Collections
-* Blogs
-* Posts
+* Properties
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* PropertyForm
+* PropertyShow
+* PropertiesIndex (composite view, contains PropertyIndexItem subviews)
+* FollowPropertiesIndex (composite view, contains PropertyIndexItem subviews, this will be in a sidebar)
+* PropertyIndexItem
 
 ## Gems/Libraries
