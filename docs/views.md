@@ -1,26 +1,34 @@
 # View Wireframes
 
-## New Session
-![new-session]
+## Log In
+![log-in]
 
-## Feed Show (landing page)
-![feed-show]
+## Sign Up
+![sign-up]
 
-## Blog Show
-![blog-show]
+## Landing page
+![landing-page]
 
-## Post Show
-![post-show]
+## House Show
+![house-show]
 
-## Post Form
-![post-form]
+## Qualifications
+![qualifications]
 
-## Search Results
-![search-results]
+## Listing Form
+![listing-form]
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+## User Home
+![user-home]
+
+## Investment History
+![investment-history]
+
+[log-in]: ./wireframes/log_in_page.jpg
+[sign-up]: ./wireframes/sign_up_page.jpg
+[landing-page]: ./wireframes/landing-page.jpg
+[house-show]: ./wireframes/house_show.jpg
+[qualifications]: ./wireframes/qualifications.jpg
+[listing-form]: ./wireframes/form.jpg
+[user-home]: ./wireframes/user_home.jpg
+[investment-history]: ./wireframes/investment_history.jpg
