@@ -69,7 +69,6 @@ Allow users to search properties by location and price and also filter results. 
 ### Bonus Features (TBD)
 - [ ] Pop-up pages for user log-in and sign-up
 - [ ] E-mail verification for new users
-- [ ] Evaluate risks
 - [ ] Text message alerts
 - [ ] Responsive Design
 - [ ] Make listings shareable (facebook, email, etc)
