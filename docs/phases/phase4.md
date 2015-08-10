@@ -4,17 +4,21 @@
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
+Api::Users (show)
 
 ### Views
-posts/feed.json.jbuilder
+* users/show.json.jbuilder
+
 
 ## Backbone
 ### Models
+User
 
 ### Collections
+Users
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* UserHome
+* FollowPropertiesIndex (composite view, contains PropertyIndexItem subviews, this will be in a sidebar)
 
 ## Gems/Libraries

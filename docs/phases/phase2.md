@@ -8,6 +8,7 @@ Api::PropertiesController (create, destroy, index, show)
 
 ### Views
 * properties/show.json.jbuilder
+* properties/index.json.jbuilder
 
 ## Backbone
 ### Models
@@ -20,7 +21,6 @@ Api::PropertiesController (create, destroy, index, show)
 * PropertyForm
 * PropertyShow
 * PropertiesIndex (composite view, contains PropertyIndexItem subviews)
-* FollowPropertiesIndex (composite view, contains PropertyIndexItem subviews, this will be in a sidebar)
 * PropertyIndexItem
 
 ## Gems/Libraries
