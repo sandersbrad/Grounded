@@ -1,39 +1,40 @@
 # Schema Information
 
-## blogs
+## investortable
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
-title       | string    | not null
+user_id     | integer   | not null, foreign key (references users)
+property_id | string    | not null, foreign key (references properties)
 
-## followings
+## followtable
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references blogs)
-follower_id | integer   | not null, foreign key (references users)
+user_id     | integer   | not null, foreign key (references users)
+property_id | integer   | not null, foreign key (references properties)
 
-## posts
+## images
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
-title       | string    | not null
-body        | string    |
+image_url   | string    | not null
+property_id | integer   | not null, foreign key (references properties)
 
-## tags
+## properties
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-label       | string    | not null, unique
-
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
-tag_id      | integer   | not null, foreign key (references tags)
+str_num     | integer   |
+street      | string    | not null, index true
+city        | string    | not null, index true
+state       | string    | not null, index true
+zip         | integer   | not null, index true
+description | string    | not null
+price       | integer   | not null, index true
+num_investors| integer  | not null
+num_beds    | integer   | not null
+prop_type   | string    | not null
 
 ## users
 column name     | data type | details
@@ -42,4 +43,4 @@ id              | integer   | not null, primary key
 email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
-
+phone_number    | string    |

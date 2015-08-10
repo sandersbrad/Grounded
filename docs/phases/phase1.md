@@ -6,6 +6,7 @@
 * Property
 * FollowTable
 * InvestorTable
+* Images
 
 ### Controllers
 * UsersController (create, new)

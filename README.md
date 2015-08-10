@@ -43,9 +43,9 @@ to phase 2.
 ### Phase 2: Viewing Properties (~2 days)
 I will add API routes to serve property data as JSON, then add Backbone
 models and collections that fetch data from those routes. By the end of this
-phase, users will be able to view all properties and the properties they follow with all the relevant details (fake seeds) in place inside a single Backbone app.  Allow users (signed in or not) to see how much more investment is needed for each property (status bar).
+phase, users will be able to view all properties andfollow properties they are interested in.  Allow users (signed in or not) to see how much more investment is needed for each property (status bar).
 
-Allow users who have invested (or are interested?) in a property see what other users have invested as well?  Not totally confident I want this feature, but its good to keep it in the front of my mind.
+Allow users who have invested (or are interested?) in a property see what other users have invested as well?  Not totally confident I want this feature, but its good to keep it in the front of my mind.  Also, I think this data should be stored whether or not it is rendered on the page for admin purposes.
 
 Also implement a form for users to post properties they are interested in investing in through Landed.  
 
