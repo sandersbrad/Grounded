@@ -12,7 +12,6 @@ Landed is a webapp desinged with an interface to allow users to invest in real e
 - [ ] Create accounts
 - [ ] Create sessions (log in)
 - [ ] Learn about crowd shared real estate
-- [ ] Evaluate risks
 - [ ] Find answers to frequently asked questions
 - [ ] See if they qualify
 - [ ] Browse a marketplace
@@ -69,6 +68,8 @@ Allow users to search properties by location and price and also filter results. 
 
 ### Bonus Features (TBD)
 - [ ] Pop-up pages for user log-in and sign-up
+- [ ] E-mail verification for new users
+- [ ] Evaluate risks
 - [ ] Text message alerts
 - [ ] Responsive Design
 - [ ] Make listings shareable (facebook, email, etc)
