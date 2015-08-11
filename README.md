@@ -5,7 +5,7 @@
 [heroku]
 
 ## Minimum Viable Product
-Landed is a webapp desinged with an interface to allow users to invest in real estate together. Users can:
+Grounded is a webapp desinged with an interface to allow users to invest in real estate together. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
@@ -21,6 +21,12 @@ Landed is a webapp desinged with an interface to allow users to invest in real e
 - [ ] Send inquiries
 - [ ] Search for properties by location
 - [ ] Search for properties by price
+
+
+##To-dos
+A list of quick implementations if time is permitting
+
+- [ ] Validate email with regex
 
 ## Design Docs
 * [View Wireframes][views]
@@ -46,7 +52,7 @@ phase, users will be able to view all properties andfollow properties they are i
 
 Allow users who have invested (or are interested?) in a property see what other users have invested as well?  Not totally confident I want this feature, but its good to keep it in the front of my mind.  Also, I think this data should be stored whether or not it is rendered on the page for admin purposes.
 
-Also implement a form for users to post properties they are interested in investing in through Landed.  
+Also implement a form for users to post properties they are interested in investing in through Grounded.  
 
 [Details][phase-two]
 
