@@ -1,8 +1,8 @@
-# Flux-capacitr
+# Grounded
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]
 
 ## Minimum Viable Product
 Landed is a webapp desinged with an interface to allow users to invest in real estate together. Users can:
