@@ -25,10 +25,10 @@ class Property < ActiveRecord::Base
     "Apartment"
   ]
 
-  validates: :street_number, :street, :city, :state, :zip, presence: true
-  validates: :num_beds, :num_baths, :price, presence: true
-  validates_uniqueness_of: :street_number, scope: [:unit, :street, :city, :state]
-  validates_inclusion_of: :property_type, in: PROPERY_TYPES, message: "Invalid property type"
+  validates :street_number, :street, :city, :state, :zip, presence: true
+  validates :num_beds, :num_baths, :price, presence: true
+  validates_uniqueness_of :street_number, scope: [:unit, :street, :city, :state]
+  validates_inclusion_of :property_type, in: PROPERY_TYPES, message: "Invalid property type"
 
-  
+
 end
