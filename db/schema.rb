@@ -11,10 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811163605) do
+ActiveRecord::Schema.define(version: 20150811180151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "street_number", null: false
+    t.string   "unit"
+    t.string   "street",        null: false
+    t.string   "city",          null: false
+    t.string   "state",         null: false
+    t.string   "zip",           null: false
+    t.text     "description"
+    t.integer  "num_beds",      null: false
+    t.integer  "num_baths",     null: false
+    t.integer  "price",         null: false
+    t.string   "property_type", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "properties", ["city"], name: "index_properties_on_city", using: :btree
+  add_index "properties", ["num_baths"], name: "index_properties_on_num_baths", using: :btree
+  add_index "properties", ["num_beds"], name: "index_properties_on_num_beds", using: :btree
+  add_index "properties", ["price"], name: "index_properties_on_price", using: :btree
+  add_index "properties", ["property_type"], name: "index_properties_on_property_type", using: :btree
+  add_index "properties", ["state"], name: "index_properties_on_state", using: :btree
+  add_index "properties", ["street"], name: "index_properties_on_street", using: :btree
+  add_index "properties", ["zip"], name: "index_properties_on_zip", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false

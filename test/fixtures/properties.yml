@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: properties
+#
+#  id            :integer          not null, primary key
+#  street_number :string           not null
+#  unit          :string
+#  street        :string           not null
+#  city          :string           not null
+#  state         :string           not null
+#  zip           :string           not null
+#  description   :text
+#  num_beds      :integer          not null
+#  num_baths     :integer          not null
+#  price         :integer          not null
+#  property_type :string           not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

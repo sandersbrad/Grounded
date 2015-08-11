@@ -9,8 +9,8 @@ Grounded is a webapp desinged with an interface to allow users to invest in real
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
+- [x] Create accounts
+- [x] Create sessions (log in)
 - [ ] Learn about crowd shared real estate
 - [ ] Find answers to frequently asked questions
 - [ ] See if they qualify
@@ -27,6 +27,8 @@ Grounded is a webapp desinged with an interface to allow users to invest in real
 A list of quick implementations if time is permitting
 
 - [ ] Validate email with regex
+- [ ] Validate US address
+
 
 ## Design Docs
 * [View Wireframes][views]
