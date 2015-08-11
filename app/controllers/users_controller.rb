@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
+    @hide_sign_up = true
+    @user = User.new(user_params)
   end
 
   def create
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   private
+  
   def user_params
     params.require(:user).permit(:password, :email)
   end

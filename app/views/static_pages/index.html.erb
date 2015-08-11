@@ -1,0 +1,7 @@
+<h1>Landing Page</h1>
+
+<form action="<%= new_user_url %>" method="get">
+  <%= auth_token_input %>
+  <input type="text" name="user[email]"></input>
+  <input type="submit" value="Sign Up">
+</form>
