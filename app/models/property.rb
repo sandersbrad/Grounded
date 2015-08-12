@@ -32,4 +32,5 @@ class Property < ActiveRecord::Base
 
   has_many :follows
   has_many :followers, through: :follows, source: :user
+
 end

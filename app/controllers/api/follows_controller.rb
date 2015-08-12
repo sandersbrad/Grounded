@@ -16,4 +16,10 @@ class Api::FollowsController < ApplicationController
     render json: @follow
   end
 
+  private
+
+  def follow_params
+    params.require(:follow).permit(:user_id, :property_id)
+  end
+
 end

@@ -4,11 +4,10 @@
 
 <script>
   $(document).ready(function(){
+    Grounded.CURRENT_USER = {
+       "email": "<%= current_user.email %>",
+       "id": "<%= current_user.id %>"
+     }
     Grounded.initialize();
-    Grounded.CURRENT_USER_EMAIL = "<%= current_user.email %>"
-    Grounded.CURRENT_USER_ID = <%= current_user.id %>
   });
 </script>
-
-
-<!-- {"email": "current_user.email", "id": "current_user.id"}.to_json  -->

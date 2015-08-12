@@ -11,7 +11,7 @@ Grounded.Models.User = Backbone.Model.extend({
 
   parse: function (response) {
     if (response.followed_properties) {
-      this.followed_properties().set(response.followed_properties);
+      this.followed_properties().set(response.followed_properties, { parse: true });
       delete response.followed_properties;
     }
     return response;
