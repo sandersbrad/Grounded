@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: :show, defaults: { format: :json }
     resources :properties, only: [:index, :show], defaults: { format: :json }
     resources :follows, only: [:create, :destroy], defaults: { format: :json }
+    resources :investments, only: [:create, :destroy], defaults: { format: :json }
   end
 
 end

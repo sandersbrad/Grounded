@@ -13,10 +13,18 @@
 <p> <%= property.escape('property_type') %> </p>
 </div>
 
-<button class="toggle">
+<button class="toggle_follow">
   <% if (property.isFollowed()) { %>
     Unfollow!
   <% } else { %>
     Follow!
+  <% } %>
+</button>
+
+<button class="toggle_invest">
+  <% if (property.isInvested()) { %>
+    Uninvest!
+  <% } else { %>
+    Invest!
   <% } %>
 </button>

@@ -1,4 +1,4 @@
-Grounded.Views.FollowIndexItem = Backbone.View.extend({
+Grounded.Views.FollowInvestedIndexItem = Backbone.View.extend({
 
   tagName: 'div',
   className: 'property_index_item col-xs-4',
@@ -7,7 +7,7 @@ Grounded.Views.FollowIndexItem = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
-  template: JST['properties/follow_index_item'],
+  template: JST['properties/follow_invested_index_item'],
 
   render: function () {
     var content = this.template({ property: this.model });

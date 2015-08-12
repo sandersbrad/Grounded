@@ -1,4 +1,4 @@
-Grounded.Views.FollowPropertiesIndex = Backbone.CompositeView.extend({
+Grounded.Views.InvestedPropertiesIndex = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.collection, 'add', this.addPropertyView);
@@ -9,14 +9,14 @@ Grounded.Views.FollowPropertiesIndex = Backbone.CompositeView.extend({
 
   addPropertyView: function (property) {
     var subview = new Grounded.Views.FollowInvestedIndexItem({ model: property });
-    this.addSubview('.follow_properties', subview);
+    this.addSubview('.invested_properties', subview);
   },
 
   removePropertyView: function (property) {
-    this.removeModelSubview('.follow_properties', property);
+    this.removeModelSubview('.invested_properties', property);
   },
 
-  template: JST['properties/follow_properties'],
+  template: JST['properties/invested_properties'],
 
   render: function () {
     var content = this.template();

@@ -6,6 +6,11 @@ Grounded.Models.Property = Backbone.Model.extend({
     if (response.current_user_follow) {
       this.current_user_follow().set(response.current_user_follow);
     }
+
+    if (response.current_user_invested) {
+      this.current_user_invested().set(response.current_user_invested);
+    }
+
     return response;
   },
 
@@ -16,8 +21,19 @@ Grounded.Models.Property = Backbone.Model.extend({
     return this._current_user_follow;
   },
 
+  current_user_invested: function () {
+    if (!this._current_user_invested) {
+      this._current_user_invested = new Grounded.Models.Investment();
+    }
+    return this._current_user_invested;
+  },
+
   isFollowed: function () {
     return !this.current_user_follow().isNew();
+  },
+
+  isInvested: function () {
+    return !this.current_user_invested().isNew();
   }
 
 });

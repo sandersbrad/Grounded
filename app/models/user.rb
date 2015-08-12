@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   has_many :investments
 
   has_many :followed_properties, through: :follows, source: :property
-  has_many :investment_properties, through: :investments, source: :property
+  has_many :invested_properties, through: :investments, source: :property 
 
   after_initialize :ensure_session_token
 
