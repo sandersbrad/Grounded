@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
   def new
     @hide_sign_up = true
-    @user = User.new(user_params)
+    
+    if user_params
+      @user = User.new(user_params)
+    else
+      @user = User.new
+    end
   end
 
   def create
@@ -16,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
   def user_params
     params.require(:user).permit(:password, :email)
   end
