@@ -1,20 +1,21 @@
 Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
 
   initialize: function () {
-    this.listenTo(this.collection, 'sync add', this.addPropertyView)
+    this.listenTo(this.collection, 'add', this.addPropertyView);
+    this.collection.each(this.addPropertyView.bind(this));
   },
 
   addPropertyView: function (property) {
-    var subview = new PropertiesIndexItem({ model: property });
-    this.addSubview('.properties', subview)
-  }
+    var subview = new Grounded.Views.PropertiesIndexItem({ model: property });
+    this.addSubview('.properties', subview);
+  },
 
   template: JST['properties/index'],
 
   render: function () {
-    var content = this.template({ properties: this.collection });
+    var content = this.template();
     this.$el.html(content);
+    this.attachSubviews();
     return this;
   }
-
 });

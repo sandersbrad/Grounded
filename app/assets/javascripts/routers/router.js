@@ -1,17 +1,28 @@
 Grounded.Routers.Router = Backbone.Router.extend({
 
-  initialize: function () {
-    this.$rootEl = options.$rootEl
-    this.collection = options.collection
+  initialize: function (options) {
+    this.$rootEl = options.$rootEl;
+    this.collection = options.collection;
   },
 
   routes: {
-    '': 'index',
+    // '': 'index',
     'properties': 'propertiesIndex'
   },
 
-  index: function () {
-    var view =
-  }
+  // index: function () {
+  //   var view =
+  // }
 
+  propertiesIndex: function () {
+    var view = new Grounded.Views.PropertiesIndex({ collection: this.collection });
+    this._swapViews(view);
+    this.collection.fetch();
+  },
+
+  _swapViews: function (view) {
+    this._currentView && this._currentView.remove();
+    this._currentView = view;
+    this.$rootEl.html(view.render().$el);
+  }
 });

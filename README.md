@@ -23,11 +23,17 @@ Grounded is a webapp desinged with an interface to allow users to invest in real
 - [ ] Search for properties by price
 
 
+##Where I left off
+
+Passing the current user e-mail and id to backbone
+Making it possible to follow properties
+
 ##To-dos
 A list of quick implementations if time is permitting
 
 - [ ] Validate email with regex
 - [ ] Validate US address
+- [ ] Add units to address if needed (propertylistitem, propertyshow)
 
 
 ## Design Docs

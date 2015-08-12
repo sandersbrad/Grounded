@@ -1,0 +1,14 @@
+<div class="property_price">
+<p> <%= property.escape('price') %> </p>
+</div>
+
+<div class="property_address">
+<p id="street_address"><%= property.escape('street_number') + ' ' + property.escape('street')%></p>
+<p id="city_state_zip"> <%= property.escape('city') + ", " + property.escape('state') + "  " + property.escape('zip') %></p>
+<div>
+
+<div class="property_details">
+<p id="description"> <%= property.escape('description') %> </p>
+<p> <%= "Beds: " + property.escape('num_beds') + "Baths: " + property.escape('num_baths') %> </p>
+<p> <%= property.escape('property_type') %> </p>
+</div>
