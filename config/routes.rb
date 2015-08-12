@@ -3,4 +3,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
+
+  namespace :api do
+    resources :users, only: :show, defaults: { format: :json }
+    resources :properties, only: [:index, :show], defaults: { format: :json }
+  end
+
 end

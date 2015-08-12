@@ -14,7 +14,7 @@
   <%= current_user.email %>
   <%= button_to "Sign Out", session_url, :method => :delete %>
 <% else %>
-  <%= link_to "Sign In", new_session_url %>
+  <%= link_to "Sign In", new_session_url unless @hide_sign_in %>
   <%= link_to "Sign Up", new_user_url unless @hide_sign_up %>
 <% end %>
 

@@ -30,5 +30,6 @@ class Property < ActiveRecord::Base
   validates_uniqueness_of :street_number, scope: [:unit, :street, :city, :state]
   validates_inclusion_of :property_type, in: PROPERY_TYPES, message: "Invalid property type"
 
-
+  has_many :follows
+  has_many :followers, through: :follows, source: :user
 end

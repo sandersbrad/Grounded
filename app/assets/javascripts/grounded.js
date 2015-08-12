@@ -5,6 +5,15 @@ window.Grounded = {
   Routers: {},
   initialize: function() {
     // alert('Hello from Backbone!');
+    var collection = new Grounded.Collections.Properties ()
+    var $rootEl = $('#content')
+
+    new Grounded.Routers.Router({
+      collection: collection,
+      $rootEl: $rootEl
+    })
+
+    Backbone.history.start()
   }
 };
 
