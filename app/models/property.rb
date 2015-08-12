@@ -31,6 +31,9 @@ class Property < ActiveRecord::Base
   validates_inclusion_of :property_type, in: PROPERY_TYPES, message: "Invalid property type"
 
   has_many :follows
+  has_many :investments
+
   has_many :followers, through: :follows, source: :user
+  has_many :investors, through: :investments, source: :user
 
 end

@@ -18,8 +18,10 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many :follows
-  
+  has_many :investments
+
   has_many :followed_properties, through: :follows, source: :property
+  has_many :investment_properties, through: :investments, source: :property
 
   after_initialize :ensure_session_token
 
