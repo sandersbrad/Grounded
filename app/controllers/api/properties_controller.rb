@@ -16,5 +16,9 @@ class Api::PropertiesController < ApplicationController
     @property = Property.find(params[:id])
   end
 
+  def zillow_search
+
+  end
+
 
 end

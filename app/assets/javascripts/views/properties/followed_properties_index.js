@@ -8,7 +8,7 @@ Grounded.Views.FollowPropertiesIndex = Backbone.CompositeView.extend({
   },
 
   tagName: 'div',
-  className: 'followed_propeties_side',
+  className: 'followed_properties_side',
 
   addPropertyView: function (property) {
     var subview = new Grounded.Views.FollowInvestedIndexItem({ model: property });

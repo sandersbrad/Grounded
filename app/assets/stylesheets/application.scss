@@ -13,3 +13,73 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#nav-bar {
+  background:#C3C6D3;
+}
+
+#side-bar {
+  background: #C3C6D3;
+  height: 100vh;
+}
+
+.new-form {
+  padding-left: 36px
+}
+
+div .current-user {
+  float: right;
+  bottom: 0px;
+}
+
+.brand {
+  position: absolute;
+  top: 10px;
+}
+
+.sign-in {
+  float: right;
+}
+
+.sign-up {
+  float: right;
+}
+
+div .sign-out {
+  float: right;
+}
+
+.splash-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  float:none;
+  margin: auto auto;
+  height: 300px;
+  width: 600px;
+  border-radius: 10px;
+  background: rgba(189, 172, 210, 0.59)
+}
+
+.jumbotron {
+    position: relative;
+    margin-bottom: 0px;
+    height: 600px;
+    background-image: image-url('SFLanding2.jpg');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.logo {
+  position: absolute;
+  bottom: 90px;
+  right: 90px;
+}
+//
+// .new-form {
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+// }

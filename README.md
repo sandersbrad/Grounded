@@ -16,8 +16,8 @@ Grounded is a webapp desinged with an interface to allow users to invest in real
 - [ ] See if they qualify
 - [ ] Browse a marketplace
 - [ ] Input income and credit score figures and get a maximum allowed investment
-- [ ] Invest in properties
-- [ ] Follow properties
+- [x] Invest in properties
+- [x] Follow properties
 - [ ] Send inquiries
 - [ ] Search for properties by location
 - [ ] Search for properties by price

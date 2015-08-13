@@ -1,14 +1,16 @@
-<h1>Root El</h1>
+<div class='container col-md-2' id='side-bar'></div>
+<div class="container col-md-10" id='content'></div>
 
-<div id='side-bar'></div>
-<div class="container" id='content'></div>
 
 <script>
   $(document).ready(function(){
-    Grounded.CURRENT_USER = {
-       "email": "<%= current_user.email %>",
-       "id": "<%= current_user.id %>"
-     }
+    <% if current_user %>
+      Grounded.CURRENT_USER = {
+         "email": "<%= current_user.email %>",
+         "id": "<%= current_user.id %>"
+       }
+    <% end %>
+
     Grounded.initialize();
   });
 </script>

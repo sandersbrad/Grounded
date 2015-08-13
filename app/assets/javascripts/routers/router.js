@@ -11,8 +11,7 @@ Grounded.Routers.Router = Backbone.Router.extend({
 
   routes: {
     // '': 'index',
-    'properties': 'propertiesIndex',
-    'follow_properties': 'followPropertiesIndex',
+    '': 'propertiesIndex',
     // 'invested_properties': 'investedPropertiesIndex'
   },
 
@@ -29,8 +28,11 @@ Grounded.Routers.Router = Backbone.Router.extend({
   sidebar: function () {
     var view = new Grounded.Views.Sidebar({});
     this.$sidebar.html(view.render().$el);
-    Grounded.followCollection.fetch();
-    Grounded.investedCollection.fetch();
+
+    if (Grounded.CURRENT_USER) {
+      Grounded.followCollection.fetch();
+      Grounded.investedCollection.fetch();
+    }
   },
 
   followPropertiesIndex: function () {
