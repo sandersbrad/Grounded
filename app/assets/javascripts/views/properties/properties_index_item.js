@@ -23,8 +23,6 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
   },
 
   toggleInvest: function (event) {
-    // This will need to change.  Don't want users to just univest.
-    // better redirected to a qualifaction page.
     if (this.model.isInvested()) {
       this.uninvestProperty();
     } else {
@@ -34,21 +32,36 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
 
   investProperty: function () {
     this.model.current_user_invested().save({ property_id: this.model.id,
-                                              user_id: Grounded.CURRENT_USER.id });
+                                              user_id: Grounded.CURRENT_USER.id },
+                                            { success: function () {
+                                                Grounded.investedCollection.add(this.model); }.bind(this),
+                                            });
   },
 
   uninvestProperty: function () {
-    this.model.current_user_invested().destroy();
+    this.model.current_user_invested().destroy({
+      success: function () {
+        Grounded.investedCollection.remove(this.model);
+      }.bind(this)
+    });
     this.model.current_user_invested().clear();
   },
 
+
   followProperty: function() {
     this.model.current_user_follow().save({ property_id: this.model.id,
-                                            user_id: Grounded.CURRENT_USER.id });
+                                            user_id: Grounded.CURRENT_USER.id },
+                                          { success: function () {
+                                              Grounded.followCollection.add(this.model); }.bind(this),
+                                          });
   },
 
   unfollowProperty: function () {
-    this.model.current_user_follow().destroy();
+    this.model.current_user_follow().destroy({
+      success: function () {
+        Grounded.followCollection.remove(this.model);
+      }.bind(this)
+    });
     this.model.current_user_follow().clear();
   },
 

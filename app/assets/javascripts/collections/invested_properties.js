@@ -1,12 +1,8 @@
 Grounded.Collections.InvestedProperties = Backbone.Collection.extend({
 
-  url: 'api/properties',
+  url: 'api/properties/invested',
 
   model: Grounded.Models.Property,
-
-  initialize: function (options) {
-    this.user = options.user;
-  },
 
   getOrFetch: function (id) {
     var model = this.get(id);

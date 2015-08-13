@@ -1,12 +1,8 @@
 Grounded.Collections.FollowedProperties = Backbone.Collection.extend({
 
-  url: 'api/properties',
+  url: 'api/properties/followed',
 
   model: Grounded.Models.Property,
-
-  initialize: function (options) {
-    this.user = options.user;
-  },
 
   getOrFetch: function (id) {
     var model = this.get(id);

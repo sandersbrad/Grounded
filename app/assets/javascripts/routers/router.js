@@ -3,14 +3,17 @@ Grounded.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.collection = options.collection;
-    this.user = new Grounded.Models.User({ id: Grounded.CURRENT_USER.id });
+    Grounded.followCollection = new Grounded.Collections.FollowedProperties();
+    Grounded.investedCollection = new Grounded.Collections.InvestedProperties();
+    this.$sidebar = options.$sidebar;
+    this.sidebar();
   },
 
   routes: {
     // '': 'index',
     'properties': 'propertiesIndex',
     'follow_properties': 'followPropertiesIndex',
-    'invested_properties': 'investedPropertiesIndex'
+    // 'invested_properties': 'investedPropertiesIndex'
   },
 
   // index: function () {
@@ -18,11 +21,16 @@ Grounded.Routers.Router = Backbone.Router.extend({
   // }
 
   propertiesIndex: function () {
-    // var followedCollection = this.user.followed_properties();
     var view = new Grounded.Views.PropertiesIndex({ collection: this.collection });
     this._swapViews(view);
     this.collection.fetch();
-    this.user.fetch();
+  },
+
+  sidebar: function () {
+    var view = new Grounded.Views.Sidebar({});
+    this.$sidebar.html(view.render().$el);
+    Grounded.followCollection.fetch();
+    Grounded.investedCollection.fetch();
   },
 
   followPropertiesIndex: function () {
@@ -32,14 +40,14 @@ Grounded.Routers.Router = Backbone.Router.extend({
     this._swapViews(view);
     this.user.fetch();
   },
-
-  investedPropertiesIndex: function () {
-    var collection = this.user.invested_properties();
-    var view = new Grounded.Views.InvestedPropertiesIndex({ collection: collection });
-
-    this._swapViews(view);
-    this.user.fetch();
-  },
+  //
+  // investedPropertiesIndex: function () {
+  //   var collection = this.user.invested_properties();
+  //   var view = new Grounded.Views.InvestedPropertiesIndex({ collection: collection });
+  //
+  //   this._swapViews(view);
+  //   this.user.fetch();
+  // },
 
   _swapViews: function (view) {
     this._currentView && this._currentView.remove();

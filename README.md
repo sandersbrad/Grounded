@@ -34,6 +34,7 @@ A list of quick implementations if time is permitting
 - [ ] Validate email with regex
 - [ ] Validate US address
 - [ ] Add units to address if needed (propertylistitem, propertyshow)
+- [ ] Change custom routes to properties#show, parse results into separate collections
 
 
 ## Design Docs

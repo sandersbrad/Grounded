@@ -3,9 +3,12 @@ Grounded.Views.InvestedPropertiesIndex = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, 'add', this.addPropertyView);
     this.listenTo(this.collection, 'remove', this.removePropertyView);
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'sync change', this.render);
     this.collection.each(this.addPropertyView.bind(this));
   },
+
+  tagName: 'div',
+  className: 'invested_properties_side',
 
   addPropertyView: function (property) {
     var subview = new Grounded.Views.FollowInvestedIndexItem({ model: property });
