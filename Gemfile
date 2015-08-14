@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rename'
 gem 'annotate'
 gem 'newrelic_rpm'
+gem 'figaro'
 
 
 

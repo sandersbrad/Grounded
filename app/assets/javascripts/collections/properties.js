@@ -8,7 +8,7 @@ Grounded.Collections.Properties = Backbone.Collection.extend({
     var model = this.get(id);
 
     if (!model) {
-      model = new Grounded.Models.Property();
+      model = new Grounded.Models.Property({id: id});
       this.add(model);
     }
 

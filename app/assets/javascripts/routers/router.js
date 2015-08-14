@@ -12,6 +12,7 @@ Grounded.Routers.Router = Backbone.Router.extend({
   routes: {
     // '': 'index',
     '': 'propertiesIndex',
+    'properties/:id': 'show'
     // 'invested_properties': 'investedPropertiesIndex'
   },
 
@@ -23,6 +24,12 @@ Grounded.Routers.Router = Backbone.Router.extend({
     var view = new Grounded.Views.PropertiesIndex({ collection: this.collection });
     this._swapViews(view);
     this.collection.fetch();
+  },
+
+  show: function (id) {
+    var model = this.collection.getOrFetch(id);
+    var view = new Grounded.Views.PropertyShow({ model: model });
+    this._swapViews(view);
   },
 
   sidebar: function () {
