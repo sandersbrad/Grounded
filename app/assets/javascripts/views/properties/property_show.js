@@ -1,6 +1,8 @@
 Grounded.Views.PropertyShow = Backbone.View.extend({
 
-  initialize: function () {},
+  initialize: function () {
+    this.listenTo(this.model, 'sync', this.render);
+  },
 
   template: JST['properties/show'],
 
@@ -11,6 +13,7 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
   render: function () {
     var content = this.template({ property: this.model });
     this.$el.html(content);
+    
     return this;
   },
 
@@ -30,7 +33,7 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
                                      thumb_url: thumb_url,
                                      property_id: property_id
                                    });
-debugger
+
                                    model.save({},{});
                                  }.bind(this));
   },

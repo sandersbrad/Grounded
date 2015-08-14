@@ -3,8 +3,10 @@
 </div>
 
 <div class="property_address">
-<p id="street_address"><%= property.escape('street_number') + ' ' + property.escape('street')%></p>
-<p id="city_state_zip"> <%= property.escape('city') + ", " + property.escape('state') + "  " + property.escape('zip') %></p>
+  <a href="#/properties/<%= property.id %>">
+    <p id="street_address"><%= property.escape('street_number') + ' ' + property.escape('street')%></p>
+    <p id="city_state_zip"> <%= property.escape('city') + ", " + property.escape('state') + "  " + property.escape('zip') %></p>
+  </a>
 <div>
 
 <div class="property_details">

@@ -11,7 +11,19 @@ Grounded.Models.Property = Backbone.Model.extend({
       this.current_user_invested().set(response.current_user_invested);
     }
 
+    if (response.images) {
+      this.images().set(response.images);
+    }
+
     return response;
+  },
+
+  images: function () {
+    if (!this._images) {
+      this._images = new Grounded.Models.Image();
+    }
+
+    return this._images;
   },
 
   current_user_follow: function () {

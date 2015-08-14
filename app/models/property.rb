@@ -32,6 +32,7 @@ class Property < ActiveRecord::Base
 
   has_many :follows
   has_many :investments
+  has_many :images
 
   has_many :followers, through: :follows, source: :user
   has_many :investors, through: :investments, source: :user
