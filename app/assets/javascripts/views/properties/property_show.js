@@ -2,7 +2,6 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.images(), 'add', this.render);
   },
 
   template: JST['properties/show'],
@@ -14,7 +13,24 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
   render: function () {
     var content = this.template({ property: this.model });
     this.$el.html(content);
+    this.onRender();
     return this;
+  },
+
+  onRender: function () {
+    if(this.model.images().length > 0){
+      this.$('.carousel-inner').empty();
+      this.model.images().forEach(function (image) {
+        this.addCarouselImage(image.escape('image_url'));
+      }.bind(this));
+
+      this.$('.item:first').addClass('active');
+    }
+  },
+
+  addCarouselImage: function (image_url) {
+    var $carousel = this.$('.carousel-inner');
+    $carousel.append('<div class="item"><img u="image" src=' + image_url + '></div>');
   },
 
   uploadImage: function () {
@@ -36,6 +52,10 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
                                    model.save({},{});
                                  }.bind(this));
   },
+
+  // <div class="item">
+  //   <img src="img_flower2.jpg" alt="Flower">
+  // </div>
 
 
 

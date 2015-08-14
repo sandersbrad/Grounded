@@ -60,13 +60,21 @@ div .sign-out {
   height: 300px;
   width: 600px;
   border-radius: 10px;
-  background: rgba(189, 172, 210, 0.59)
+  background: rgba(189, 172, 210, 0.59);
+}
+
+.carousel-control.right {
+  background-image: none;
+}
+
+.carousel-control.left {
+  background-image: none;
 }
 
 .jumbotron {
     position: relative;
     margin-bottom: 0px;
-    height: 600px;
+    height: 95vh;
     background-image: image-url('SFLanding2.jpg');
     background-position: 0% 25%;
     background-size: cover;
@@ -78,6 +86,11 @@ div .sign-out {
   position: absolute;
   bottom: 90px;
   right: 90px;
+}
+
+div #myCarousel {
+  width: 20%;
+  height: 20%;
 }
 //
 // .new-form {
