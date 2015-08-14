@@ -14,7 +14,6 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
   render: function () {
     var content = this.template({ property: this.model });
     this.$el.html(content);
-    debugger
     return this;
   },
 
@@ -25,7 +24,6 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
     cloudinary.openUploadWidget({ upload_preset: upload_preset,
                                  cloud_name: cloud_name },
                                  function(error, result) {
-
                                    var thumb_url = result[0].thumbnail_url;
                                    var image_url = result[0].url;
                                    var property_id = this.model.id;

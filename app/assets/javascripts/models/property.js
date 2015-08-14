@@ -12,7 +12,9 @@ Grounded.Models.Property = Backbone.Model.extend({
     }
 
     if (response.images) {
-      this.images().set(response.images);
+      response.images.forEach(function (image) {
+        this.images().push(new Grounded.Models.Image(image));
+      }.bind(this));
     }
 
     return response;
@@ -20,7 +22,7 @@ Grounded.Models.Property = Backbone.Model.extend({
 
   images: function () {
     if (!this._images) {
-      this._images = new Grounded.Models.Image();
+      this._images = [];
     }
 
     return this._images;
