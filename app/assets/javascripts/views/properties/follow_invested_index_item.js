@@ -1,7 +1,7 @@
 Grounded.Views.FollowInvestedIndexItem = Backbone.View.extend({
 
   tagName: 'div',
-  className: 'property_index_item',
+  className: 'follow-invested-item panel',
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);

@@ -13,7 +13,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+//
 #nav-bar {
   background:#C3C6D3;
 }
@@ -23,7 +23,18 @@
   height: 100vh;
 }
 
+div#sidebar.container {
+  text-align: center;
+}
 
+.follow-invested-item.panel {
+  margin: auto;
+  margin-top: 20px;
+}
+
+div.property_index_item.col-xs-4 {
+  padding: 40px;
+}
 
 .new-form {
   padding-left: 36px
@@ -51,6 +62,20 @@ div .sign-out {
   float: right;
 }
 
+.panel-heading {
+    /* padding: 10px 15px; */
+    border-bottom: 1px solid transparent;
+    border-radius-top-right: 3px;
+    border-radius-top-left: 3px;
+    background: #337AB7;
+    text-align: center;
+}
+
+.panel-body {
+  background: #ffffff;
+
+}
+
 .splash-center {
   position: relative;
   top: 50%;
@@ -61,6 +86,11 @@ div .sign-out {
   width: 600px;
   border-radius: 10px;
   background: rgba(189, 172, 210, 0.59);
+}
+
+.panel {
+  width: 70%;
+  border: 0
 }
 
 .carousel-control.right {
@@ -76,7 +106,7 @@ div .sign-out {
     margin-bottom: 0px;
     height: 95vh;
     background-image: image-url('SFLanding2.jpg');
-    background-position: 0% 25%;
+    background-position: 0% 100%;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -88,13 +118,27 @@ div .sign-out {
   right: 90px;
 }
 
+h5#street_address {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
 div #myCarousel {
   width: 20%;
   height: 20%;
 }
-//
-// .new-form {
-//   position: absolute;
-//   bottom: 0;
-//   right: 0;
-// }
+
+.new-form {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.panel-body {
+  border-radius: 4px;
+}
+
+.progress {
+  margin-bottom: 0;
+}

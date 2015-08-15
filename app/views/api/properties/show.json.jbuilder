@@ -14,3 +14,4 @@ json.images do
 end
 
 json.followers @property.followers, :id, :email
+json.investors @property.investors.count

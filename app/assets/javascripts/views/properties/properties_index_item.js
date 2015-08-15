@@ -9,9 +9,15 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
   },
 
   initialize: function (options) {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync change:investors', this.render);
     this.listenTo(this.model.current_user_follow(), 'change', this.render);
     this.listenTo(this.model.current_user_invested(), 'change', this.render);
+  },
+
+  render: function () {
+    var content = this.template({ property: this.model });
+    this.$el.html(content);
+    return this;
   },
 
   toggleFollow: function (event) {
@@ -24,8 +30,10 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
 
   toggleInvest: function (event) {
     if (this.model.isInvested()) {
+      this.model.set("investors", (this.model.get('investors') - 1));
       this.uninvestProperty();
     } else {
+      this.model.set("investors", this.model.get('investors') + 1);
       this.investProperty();
     }
   },
@@ -36,9 +44,13 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
                                             { success: function () {
                                                 Grounded.investedCollection.add(this.model); }.bind(this),
                                             });
+    if (this.model.current_user_follow()) {
+      this.unfollowProperty();
+    }
   },
 
   uninvestProperty: function () {
+
     this.model.current_user_invested().destroy({
       success: function () {
         Grounded.investedCollection.remove(this.model);
@@ -63,12 +75,7 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
       }.bind(this)
     });
     this.model.current_user_follow().clear();
-  },
-
-  render: function () {
-    var content = this.template({ property: this.model });
-    this.$el.html(content);
-    return this;
   }
+
 
 });
