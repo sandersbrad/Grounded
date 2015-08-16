@@ -16,6 +16,7 @@ gem 'rename'
 gem 'annotate'
 gem 'newrelic_rpm'
 gem 'figaro'
+gem 'seed_dump'
 
 
 

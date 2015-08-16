@@ -33,3 +33,11 @@ follows = Follow.create([{ user_id: User.first.id, property_id: Property.first.i
                          { user_id: User.first.id, property_id: Property.second.id },
                          { user_id: User.last.id, property_id: Property.last.id }
                         ])
+images = Image.create!([
+  {property_id: 1, image_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/v1439764856/cqgsbbc6dv034hp2ujzw.jpg", thumb_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/c_limit,h_60,w_90/v1439764856/cqgsbbc6dv034hp2ujzw.jpg"},
+  {property_id: 1, image_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/v1439764865/zpcotmnlf8pl5hizuwow.jpg", thumb_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/c_limit,h_60,w_90/v1439764865/zpcotmnlf8pl5hizuwow.jpg"},
+  {property_id: 2, image_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/v1439764894/kjv0t7viktlblijdasjp.jpg", thumb_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/c_limit,h_60,w_90/v1439764894/kjv0t7viktlblijdasjp.jpg"},
+  {property_id: 2, image_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/v1439764899/nxjkvkk49dsz3e0b2nld.jpg", thumb_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/c_limit,h_60,w_90/v1439764899/nxjkvkk49dsz3e0b2nld.jpg"},
+  {property_id: 3, image_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/v1439764915/e2s2se2vmkn4acablwgm.jpg", thumb_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/c_limit,h_60,w_90/v1439764915/e2s2se2vmkn4acablwgm.jpg"},
+  {property_id: 3, image_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/v1439764921/tham0qs7zrrrkckdun5m.jpg", thumb_url: "http://res.cloudinary.com/dwhvrflyu/image/upload/c_limit,h_60,w_90/v1439764921/tham0qs7zrrrkckdun5m.jpg"}
+])
