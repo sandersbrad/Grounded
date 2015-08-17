@@ -1,7 +1,7 @@
 Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
   template: JST['properties/index_item'],
   tagName: 'div',
-  className: 'property_index_item col-xs-4',
+  className: 'property_index_item col-xs-4 container-fluid',
 
   events: {
     'click .toggle_follow': 'toggleFollow',

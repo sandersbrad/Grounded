@@ -1,60 +1,74 @@
-<div class='thumbnail'>
-  <img src='<%= property.images()[0].escape('thumb_url') %>'>
-</div>
+<div class='index-item-box'>
+  <div class='row'>
+    <div class='col-md-4' style=' overflow: hidden; content: center'>
+      <div class='thumb'>
+        <img src='<%= property.images()[0].escape('thumb_url') %>' height=90>
+      </div>
 
-<div class="property_price">
-<p> <%= property.escape('price') %> </p>
-</div>
+      <div class="property_price">
+      <p><b> $<%= property.escape('price') %> </b></p>
+      </div>
+    </div>
 
-<div class="property_address">
-  <a href="#/properties/<%= property.id %>">
-    <p id="street_address">
-      <%= property.escape('street_number') + ' ' + property.escape('street')%>
-    </p>
-    <p id="city_state_zip">
-      <%= property.escape('city') + ", " + property.escape('state') + "  " + property.escape('zip') %>
-    </p>
-  </a>
-<div>
 
-<div class="property_details">
-  <p id="description">
-    <%= property.escape('description') %>
-  </p>
-  <p>
-    <%= "Beds: " + property.escape('num_beds') + "Baths: " + property.escape('num_baths') %>
-  </p>
-  <p>
-    <%= property.escape('property_type') %>
-  </p>
-</div>
+    <div class='col-md-8'>
+      <div class="property_address">
+        <a href="#/properties/<%= property.id %>">
+          <p id="street_address">
+            <%= property.escape('street_number') + ' ' + property.escape('street')%>
+          </p>
+          <p id="city_state_zip">
+            <%= property.escape('city') + ", " + property.escape('state') + "  " + property.escape('zip') %>
+          </p>
+        </a>
+      </div>
 
-<div class="progress">
-  <div class="progress-bar" role="progressbar"
-                            aria-valuenow="<%= property.escape('investors') %>"
-                            aria-valuemin="0"
-                            aria-valuemax="33"
-                            style="min-width: 6%; width: <%= Math.round(property.escape('investors')/33 * 100)%>% ;">
-    <%= Math.round(property.escape('investors')/33 * 100)%>%
+      <div class="property_details">
+        <p id="description">
+          <%= property.escape('description') %>
+        </p>
+        <p>
+          <%= "Beds: " + property.escape('num_beds') + " Baths: " + property.escape('num_baths') %>
+        </p>
+        <p>
+          <%= property.escape('property_type') %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-12'>
+
+      <div class="progress">
+        <div class="progress-bar" role="progressbar"
+                                  aria-valuenow="<%= property.escape('investors') %>"
+                                  aria-valuemin="0"
+                                  aria-valuemax="33"
+                                  style="min-width: 6%; width: <%= Math.round(property.escape('investors')/33 * 100)%>% ;">
+          <%= Math.round(property.escape('investors')/33 * 100)%>%
+        </div>
+      </div>
+
+      <% if (Grounded.CURRENT_USER) { %>
+        <% if (!property.isInvested()) {%>
+          <button class="toggle_follow">
+            <% if (property.isFollowed()) { %>
+              Unfollow!
+            <% } else { %>
+              Follow!
+            <% } %>
+          </button>
+        <% } %>
+
+        <button class="toggle_invest">
+          <% if (property.isInvested()) { %>
+            Uninvest!
+          <% } else { %>
+            Invest!
+          <% } %>
+        </button>
+      <% } %>
+    </div>
   </div>
 </div>
-
-<% if (Grounded.CURRENT_USER) { %>
-  <% if (!property.isInvested()) {%>
-    <button class="toggle_follow">
-      <% if (property.isFollowed()) { %>
-        Unfollow!
-      <% } else { %>
-        Follow!
-      <% } %>
-    </button>
-  <% } %>
-
-  <button class="toggle_invest">
-    <% if (property.isInvested()) { %>
-      Uninvest!
-    <% } else { %>
-      Invest!
-    <% } %>
-  </button>
-<% } %>

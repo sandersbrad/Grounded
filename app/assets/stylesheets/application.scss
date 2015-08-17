@@ -18,6 +18,15 @@
   background:#C3C6D3;
 }
 
+img.nav-logo {
+  height: 50px;
+  padding-left: 20px;
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
 #side-bar {
   background: #C3C6D3;
   height: 100vh;
@@ -30,10 +39,6 @@ div#sidebar.container {
 .follow-invested-item.panel {
   margin: auto;
   margin-top: 20px;
-}
-
-div.property_index_item.col-xs-4 {
-  padding: 40px;
 }
 
 .new-form {
@@ -141,4 +146,14 @@ div #myCarousel {
 
 .progress {
   margin-bottom: 0;
+}
+
+div.property_index_item.col-xs-4 {
+  padding: 0px;
+}
+
+div.index-item-box {
+  border: 1px solid#000689;
+  padding: 15px 20px;
+  border-radius: 5px;
 }
