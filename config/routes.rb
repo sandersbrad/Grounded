@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
-  get '/properties', to: 'static_pages#root'
+  get '/home', to: 'static_pages#root'
 
   namespace :api do
     resources :users, only: :show, defaults: { format: :json }

@@ -13,7 +13,7 @@ Grounded.Routers.Router = Backbone.Router.extend({
     // '': 'index',
     '': 'propertiesIndex',
     'about': 'aboutPage',
-    'faq': 'fequentlyAskedQuestions',
+    'faq': 'frequentlyAskedQuestions',
     'properties/:id': 'show'
     // 'invested_properties': 'investedPropertiesIndex'
   },
@@ -29,7 +29,6 @@ Grounded.Routers.Router = Backbone.Router.extend({
   },
 
   aboutPage: function () {
-    debugger;
     var view = new Grounded.Views.About();
     this._swapViews(view);
   },

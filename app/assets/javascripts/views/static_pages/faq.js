@@ -4,9 +4,8 @@ Grounded.Views.FrequentlyAskedQuestions = Backbone.View.extend({
 
   render: function () {
     var content = this.template();
-    debugger
     this.$el.html(content);
-    return this
+    return this;
   }
 
 });

@@ -3,10 +3,9 @@ Grounded.Views.About = Backbone.View.extend({
   template: JST['static_pages/about'],
 
   render: function () {
-    debugger
     var content = this.template();
     this.$el.html(content);
-    return this
+    return this;
   }
 
 });
