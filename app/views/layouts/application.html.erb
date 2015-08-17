@@ -29,16 +29,67 @@
 
 <body>
 
+  <div class="modal fade" id="SignUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-<!-- <div class='container col-md-12' id='nav-bar'>
-  <% if signed_in? %>
-    <%= button_to "Sign Out", session_url, :method => :delete, :class => 'btn btn-default sign-out' %>
-    <div class='current-user'><%= current_user.email %></div>
-  <% else %>
-    <%= link_to "Sign In", new_session_url, :class => 'btn btn-default sign-in' unless @hide_sign_in %>
-    <%= link_to "Sign Up", new_user_url, :class => 'btn btn-default sign-up' unless @hide_sign_up %>
-  <% end %>
-</div> -->
+        <div class="modal-body">
+          <h2>Sign Up</h2>
+
+          <form action="<%= users_url %>" method="post">
+            <%= auth_token_input %>
+
+            <label>
+              E-mail
+              <input type="text" name="user[email]" value="">
+            </label>
+
+            <label>
+              Password
+              <input type="password" name="user[password]" value="">
+            </label>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default blue" data-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-default blue" value="Sign In">
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="SignIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <div class="modal-body">
+          <h2>Sign In</h2>
+
+          <form action="<%= session_url %>" method="post">
+            <%= auth_token_input %>
+
+            <label>
+              E-mail
+              <input type="text" name="user[email]" value="">
+            </label>
+
+            <label>
+              Password
+              <input type="password" name="user[password]" value="">
+            </label>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default blue" data-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-default blue" value="Sign In">
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
 <%= render "layouts/errors" %>
