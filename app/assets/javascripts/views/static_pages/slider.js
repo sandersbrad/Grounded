@@ -4,7 +4,7 @@ Grounded.Views.Slider = Backbone.View.extend({
 
   initialize: function () {
     this.price = 700000;
-    this.rentPrice = (this.price * 0.5);
+    this.rentPrice = (this.price * 0.005);
     this.personTaxRate = (0.33);
     this.anHomeValInc = 0.02;
     this.anRentInc = this.anHomeValInc;
@@ -38,12 +38,12 @@ Grounded.Views.Slider = Backbone.View.extend({
         min: 0.04,
         max: 1,
         value: 0.04,
-        step: 0.05,
+        step: 0.01,
         slide: this.refreshValues.bind(this),
         change: this.refreshValues.bind(this)
       });
       $('#desInitOwn-slider').slider({
-        min: 0,
+        min: 0.04,
         max: 0.5,
         value: 0,
         step: 0.01,
@@ -68,6 +68,14 @@ Grounded.Views.Slider = Backbone.View.extend({
 
     this.desInitOwn = $('#desInitOwn-slider').slider("value");
     this.$('.desInitOwn').html(this.desInitOwn);
+
+    this.refreshTable();
+  },
+
+  refreshTable: function () {
+    this.$('#moneyUpFront-rental').html(this.rentPrice * 2);
+    this.$('#moneyUpFront-co').html(this.price*this.desInitOwn*(1-this.perInvPaidWDebt));
+    this.$('#moneyUpFront-own').html(this.price*(1-this.perInvPaidWDebt));
   }
 
 
