@@ -19,6 +19,44 @@
   background:#C3C6D3;
 }
 
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 0;
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    color: #000689;
+    background: rgba(248, 248, 248, 0.59);
+    border-radius: 5px
+}
+
+.modal-content {
+    position: relative;
+    background: none;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    outline: 0;
+}
+
+.btn-default.blue {
+    color: #FFF;
+    background-color: #000689;
+    border-color: #000689;
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    color: #000689;
+}
+
 img.nav-logo {
   height: 50px;
   padding-left: 20px;
