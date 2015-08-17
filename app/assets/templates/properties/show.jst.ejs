@@ -27,7 +27,12 @@
   </div>
   <div class='col-md-5'>
     <h2> <%= property.escape('street_number') %> <%= property.escape('street') %> </h2>
-    <h6> <%= property.escape('city') %>, <%= property.escape('state') %> </h6>
+    <h4> <%= property.escape('city') %>, <%= property.escape('state') %> </h4>
+    <br>
+    <h5> Beds: <%= property.escape('num_beds') %> </h5>
+    <br>
+    <h5> Baths: <%= property.escape('num_baths') %> </h5>
+    <br>
     <div class='prog'>
       <div class="progress-bar" role="progressbar"
                                 aria-valuenow="<%= property.escape('investors') %>"

@@ -21,8 +21,8 @@ Grounded.Views.Slider = Backbone.View.extend({
     this.homeInsAnPerc = 0.0044;
     this.homeRepAnPerc = 0.01;
     this.oppCostReturn = 0.0528;
-    this.refreshValues();
-    this.refreshTable();
+    // this.refreshValues();
+    // this.refreshTable();
   },
 
   CUMPRINC: function(rate, periods, value, start, end, type) {
@@ -328,43 +328,48 @@ Grounded.Views.Slider = Backbone.View.extend({
   render: function () {
     var content = this.template();
     this.$el.html(content);
-
-    $(function () {
-      $('#years-slider').slider({
-        min: 2,
-        max: 10,
-        value: 7,
-        slide: this.refreshValues.bind(this),
-        change: this.refreshValues.bind(this)
-      });
-      $('#anHomValInc-slider').slider({
-        min: 0,
-        max: 1,
-        value: 0.02,
-        step: 0.01,
-        slide: this.refreshValues.bind(this),
-        change: this.refreshValues.bind(this)
-      });
-      $('#perInvPaidWDebt-slider').slider({
-        min: 0,
-        max: 1,
-        value: 0.80,
-        step: 0.01,
-        slide: this.refreshValues.bind(this),
-        change: this.refreshValues.bind(this)
-      });
-      $('#desInitOwn-slider').slider({
-        min: 0.04,
-        max: 0.5,
-        value: 0.20,
-        step: 0.01,
-        slide: this.refreshValues.bind(this),
-        change: this.refreshValues.bind(this)
-      });
-
-    }.bind(this));
-
+    this.createSliders();
     return this;
+  },
+
+  createSliders: function () {
+    this.$('#years-slider').slider({
+      min: 2,
+      max: 10,
+      value: 7,
+      create: this.refreshValues.bind(this),
+      slide: this.refreshValues.bind(this),
+      change: this.refreshValues.bind(this)
+    });
+    this.$('#anHomValInc-slider').slider({
+      min: 0,
+      max: 1,
+      value: 0.02,
+      step: 0.01,
+      create: this.refreshValues.bind(this),
+      slide: this.refreshValues.bind(this),
+      change: this.refreshValues.bind(this)
+    });
+    this.$('#perInvPaidWDebt-slider').slider({
+      min: 0,
+      max: 1,
+      value: 0.80,
+      step: 0.01,
+      create: this.refreshValues.bind(this),
+      slide: this.refreshValues.bind(this),
+      change: this.refreshValues.bind(this)
+    });
+    this.$('#desInitOwn-slider').slider({
+      min: 0.04,
+      max: 0.5,
+      value: 0.20,
+      step: 0.01,
+      create: this.refreshValues.bind(this),
+      slide: this.refreshValues.bind(this),
+      change: this.refreshValues.bind(this)
+    });
+
+    this.refreshValues();
   },
 
 
