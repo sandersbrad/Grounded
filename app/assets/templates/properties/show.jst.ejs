@@ -1,31 +1,48 @@
-<h1> <%= property.escape('street_number') %> <%= property.escape('street') %> </h1>
+<div class='row'>
+  <div class='col-md-5'>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+      <!-- Indicators -->
+      <!-- <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide="next" class="active"></li>
+        <li data-target="#myCarousel" data-slide="prev"></li>
+      </ol> -->
 
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1439765104/no_image_na31i5.png">
+        </div>
+      </div>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-  <!-- Indicators -->
-  <!-- <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide="next" class="active"></li>
-    <li data-target="#myCarousel" data-slide="prev"></li>
-  </ol> -->
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1439765104/no_image_na31i5.png">
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
   </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <div class='col-md-5'>
+    <h2> <%= property.escape('street_number') %> <%= property.escape('street') %> </h2>
+    <h6> <%= property.escape('city') %>, <%= property.escape('state') %> </h6>
+    <div class='prog'>
+      <div class="progress-bar" role="progressbar"
+                                aria-valuenow="<%= property.escape('investors') %>"
+                                aria-valuemin="0" aria-valuemax="33"
+                                style="min-width: 10%; width: <%= Math.round(property.escape('investors')/33 * 100)%>% ;">
+        <%= Math.round(property.escape('investors')/33 * 100)%>%
+      </div>
+    </div>
+  </div>
 </div>
 
-<p> <%= property.escape('investors') %> <p>
+
+
+
+
+
 
 <button class='upload_image'>Upload Image</button>
