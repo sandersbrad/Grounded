@@ -21,6 +21,7 @@
 #
 
 class Property < ActiveRecord::Base
+  require 'uri'
 
   PROPERY_TYPES = [
     "House",
@@ -40,13 +41,28 @@ class Property < ActiveRecord::Base
   has_many :investors, through: :investments, source: :user
 
   geocoded_by :full_street_address
+  after_initialize :get_zpid
   after_validation :geocode
 
+
+  def get_zpid
+    response = HTTParty.get('https://www.zillow.com/webservice/GetDeepSearchResults.htm?' + URI.encode(zillow_query)).parsed_response
+    self.zpid = response["searchresults"]["response"]["results"]["result"]["zpid"]
+    save
+  end
+
+  def get_zillow_data
+    response = HTTParty.get('https://www.zillow.com/webservice/GetChart.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + get_zpid + '&unit-type=dollar')
+  end
 
   private
 
   def full_street_address
     self.street_number + ' ' + self.street + ', ' + self.city + ', ' + self.state
+  end
+
+  def zillow_query
+    'zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&address=' + self.street_number + ' ' + self.street + '&citystatezip=' + self.city + ', ' + self.state + ', '
   end
 
 end

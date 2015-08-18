@@ -20,7 +20,7 @@ Grounded.Views.Slider = Backbone.View.extend({
     this.mortgageInsurance = 0.01;
     this.homeInsAnPerc = 0.0044;
     this.homeRepAnPerc = 0.01;
-    this.oppCostReturn = 0.0528
+    this.oppCostReturn = 0.0528;
   },
 
   CUMPRINC: function(rate, periods, value, start, end, type) {

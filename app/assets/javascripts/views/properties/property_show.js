@@ -2,7 +2,7 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-
+    // this.listenTo(this.model, 'sync', this.makeRequest);
   },
 
   template: JST['properties/show'],
@@ -17,6 +17,25 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
     this.onRender();
     return this;
   },
+  //
+  // makeRequest: function() {
+  //   debugger
+  //   $.ajax({
+  //     url: 'https://www.zillow.com/webservice/GetDemographics.htm',
+  //     data: 'city=' + this.model.get('city') + "&state=" + this.model.get('state') + '&zwsid=X1-ZWz1a4ttzh2l8r_2xcn2',
+  //     dataType: 'json',
+  //     success: function (resp) {
+  //       debugger
+  //     },
+  //     error: function () {
+  //       debugger
+  //     }
+  //   });
+  },
+  //
+  // attachZillow: function (response) {
+  //
+  // },
 
 
   onRender: function () {
