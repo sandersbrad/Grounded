@@ -16,6 +16,8 @@
 #  property_type :string           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  latitude      :float
+#  longitude     :float
 #
 
 class Property < ActiveRecord::Base
@@ -36,5 +38,15 @@ class Property < ActiveRecord::Base
 
   has_many :followers, through: :follows, source: :user
   has_many :investors, through: :investments, source: :user
+
+  geocoded_by :full_street_address
+  after_validation :geocode
+
+
+  private
+
+  def full_street_address
+    self.street_number + ' ' + self.street + ', ' + self.city + ', ' + self.state
+  end
 
 end

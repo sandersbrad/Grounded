@@ -2,6 +2,7 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+
   },
 
   template: JST['properties/show'],
@@ -17,6 +18,7 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
     return this;
   },
 
+
   onRender: function () {
     if(this.model.images().length > 0){
       this.$('.carousel-inner').empty();
@@ -26,6 +28,8 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
 
       this.$('.item:first').addClass('active');
     }
+    this.addMap();
+    this.mapView.initMap();
   },
 
   addCarouselImage: function (image_url) {
@@ -53,9 +57,11 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
                                  }.bind(this));
   },
 
-  // <div class="item">
-  //   <img src="img_flower2.jpg" alt="Flower">
-  // </div>
+  addMap: function () {
+    this.mapView = new Grounded.Views.Map({ model: this.model });
+    this.$('.map-show').html(this.mapView.$el);
+  }
+
 
 
 

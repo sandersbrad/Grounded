@@ -4,6 +4,7 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.listenTo(this.collection, 'add', this.addPropertyView);
+    this.listenTo(this.collection, 'sync', this.addMapSubview);
     this.collection.each(this.addPropertyView.bind(this));
     this.addMapSubview();
   },
