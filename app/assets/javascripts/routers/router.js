@@ -10,24 +10,25 @@ Grounded.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    // '': 'index',
     '': 'propertiesIndex',
     'about': 'aboutPage',
     'faq': 'frequentlyAskedQuestions',
     'properties/:id': 'show',
     'contact': 'contactUs',
-    'slider': 'slider'
-    // 'invested_properties': 'investedPropertiesIndex'
+    'slider': 'slider',
+    'map': 'mapShow'
+  },
+
+  mapShow: function () {
+    var view = new Grounded.Views.Map();
+    this._swapViews(view);
+    view.initMap();
   },
 
   slider: function () {
     var view = new Grounded.Views.Slider();
     this._swapViews(view);
   },
-
-  // index: function () {
-  //   var view =
-  // }
 
   propertiesIndex: function () {
     var view = new Grounded.Views.PropertiesIndex({ collection: this.collection });
@@ -66,26 +67,11 @@ Grounded.Routers.Router = Backbone.Router.extend({
     }
   },
 
-  followPropertiesIndex: function () {
-    var collection = this.user.followed_properties();
-    var view = new Grounded.Views.FollowPropertiesIndex({ collection: collection });
-
-    this._swapViews(view);
-    this.user.fetch();
-  },
-  //
-  // investedPropertiesIndex: function () {
-  //   var collection = this.user.invested_properties();
-  //   var view = new Grounded.Views.InvestedPropertiesIndex({ collection: collection });
-  //
-  //   this._swapViews(view);
-  //   this.user.fetch();
-  // },
-
   _swapViews: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
-    this.$rootEl.html(view.render().$el);
+    this.$rootEl.html(view.$el);
+    view.render();
   },
 
 });

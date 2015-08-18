@@ -15,46 +15,98 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 //
-#nav-bar {
-  background:#C3C6D3;
+div.splash {
+  position: relative;
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+
+.splash-inner {
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+}
+
+div.container #content {
+  position: relative;
+}
+
+div.index-parent {
+  position: relative;
+}
+
+.map {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+
+}
+
+body #map-canvas-full-screen {
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+
+.btn.splash {
+  margin-top: 8px;
+}
+
+.row.container.splash {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.btn.btn-default.btn-lg {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+img.brand {
+  width: 80%;
+  position: relative;
+  transform: translateY(-32%);
+  margin: 0 auto;
+  display: block;
 }
 
 .navbar-default {
-    background-color: #f8f8f8;
-    border: none;
-    margin-bottom: 0px;
+  background-color: #f8f8f8;
+  border: none;
+  margin-bottom: 0px;
 }
 
 .modal-footer {
-    padding: 15px;
-    text-align: right;
-    border-top: 0;
+  padding: 15px;
+  text-align: right;
+  border-top: 0;
 }
 
 .modal-body {
-    position: relative;
-    padding: 15px;
-    color: #000689;
-    background: rgba(248, 248, 248, 0.59);
-    border-radius: 5px
+  position: relative;
+  padding: 15px;
+  color: #000689;
+  background: rgba(248, 248, 248, 0.59);
+  border-radius: 5px
 }
 
 .modal-content {
-    position: relative;
-    background: none;
-    border: 1px solid #999;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-    background-clip: padding-box;
-    outline: 0;
+  position: relative;
+  background: none;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
 }
 
 .btn-default.blue {
-    color: #FFF;
-    background-color: #000689;
-    border-color: #000689;
+  color: #FFF;
+  background-color: #000689;
+  border-color: #000689;
 }
 
 .modal-body {
@@ -75,6 +127,11 @@ img.nav-logo {
 #side-bar {
   background: #F8F8F8;
   height: 100vh;
+  padding-right: 0;
+}
+
+div#content.container {
+  padding: 0;
 }
 
 div#sidebar.container {
@@ -193,8 +250,10 @@ div #myCarousel {
   margin-bottom: 0;
 }
 
-div.property_index_item.col-xs-4 {
+div.property_index_item {
   padding: 0px;
+  display: block;
+  z-index: 50;
 }
 
 div.index-item-box {
@@ -202,30 +261,10 @@ div.index-item-box {
   padding: 15px 20px;
   border-radius: 5px;
   margin: 5px;
+  background: rgba(248, 248, 248, 0.84);
 }
 
-#RGB {
-	height: 20px;
-	background: rgb(128, 128, 128);
-}
-#RC .slider-selection {
-	background: #FF8282;
-}
-#RC .slider-handle {
-	background: red;
-}
-#GC .slider-selection {
-	background: #428041;
-}
-#GC .slider-handle {
-	background: green;
-}
-#BC .slider-selection {
-	background: #8283FF;
-}
-#BC .slider-handle {
-	border-bottom-color: blue;
-}
-#R, #G, #B {
-	width: 300px;
+.properties.container-fluid.col-md-4 {
+  position: absolute;
+  margin-top: 10px;
 }
