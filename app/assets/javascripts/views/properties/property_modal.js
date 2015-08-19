@@ -5,10 +5,39 @@ Grounded.Views.PropertyModal = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model.current_user_follow(), 'change', this.render);
+    this.listenTo(this.model.current_user_invested(), 'change', this.render);
   },
 
   events: {
     'click .close' : 'removeModal',
+    'click .toggle_follow': 'toggleFollow',
+    'click .toggle_invest': 'toggleInvest'
+  },
+
+  toggleFollow: function (event) {
+    if (this.model.isFollowed()){
+      this.unfollowProperty();
+    } else {
+      this.followProperty();
+    }
+  },
+
+  followProperty: function() {
+    this.model.current_user_follow().save({ property_id: this.model.id,
+                                            user_id: Grounded.CURRENT_USER.id },
+                                          { success: function () {
+                                              Grounded.followCollection.add(this.model); }.bind(this),
+                                          });
+  },
+
+  unfollowProperty: function () {
+    this.model.current_user_follow().destroy({
+      success: function () {
+        Grounded.followCollection.remove(this.model);
+      }.bind(this)
+    });
+    this.model.current_user_follow().clear();
   },
 
   template: JST['properties/modal'],

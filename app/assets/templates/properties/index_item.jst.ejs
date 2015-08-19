@@ -53,25 +53,7 @@
         </div>
       </div>
 
-      <% if (Grounded.CURRENT_USER) { %>
-        <% if (!property.isInvested()) {%>
-          <button class="toggle_follow">
-            <% if (property.isFollowed()) { %>
-              Unfollow!
-            <% } else { %>
-              Follow!
-            <% } %>
-          </button>
-        <% } %>
-
-        <button class="toggle_invest">
-          <% if (property.isInvested()) { %>
-            Uninvest!
-          <% } else { %>
-            Invest!
-          <% } %>
-        </button>
-      <% } %>
+      
     </div>
   </div>
 </div>
