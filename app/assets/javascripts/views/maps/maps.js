@@ -13,9 +13,35 @@ Grounded.Views.Map = Backbone.View.extend({
     var mapOptions = {
       center: { lat: 37.7833, lng: -122.4167 },
       zoom: 12,
+      scrollwheel: false,
+      zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.SMALL,
+        position: google.maps.ControlPosition.BOTTOM_RIGHT
+      },
+      streetView: {
+        panControlOptions: {
+          position: google.maps.ControlPosition.BOTTOM_RIGHT
+        },
+        zoomControlOptions: {
+          style: google.maps.ZoomControlStyle.SMALL,
+          position: google.maps.ControlPosition.BOTTOM_RIGHT
+        }
+      },
+      panControlOptions: {
+        position: google.maps.ControlPosition.BOTTOM_RIGHT
+      },
+      streetViewControl: true,
+      streetViewControlOptions: {
+        position: google.maps.ControlPosition.BOTTOM_RIGHT
+      }
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
+
+    this._map.get('streetView')
+    .setOptions({panControlOptions:  this._map.get('panControlOptions'),
+                 zoomControlOptions: this._map.get('zoomControlOptions')});
+
     if (this.collection) {
       this.collection.each(this.addMarker.bind(this));
     }

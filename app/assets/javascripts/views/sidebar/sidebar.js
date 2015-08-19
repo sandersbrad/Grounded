@@ -7,11 +7,12 @@ Grounded.Views.Sidebar = Backbone.View.extend({
   },
 
   render: function () {
+    this.$el.html(this.template());
+    
     if (Grounded.CURRENT_USER) {
       var followView = new Grounded.Views.FollowPropertiesIndex({ collection: Grounded.followCollection });
       var investedView = new Grounded.Views.InvestedPropertiesIndex({ collection: Grounded.investedCollection });
 
-      this.$el.html(this.template());
       this.$('.invested').html(investedView.render().$el);
       this.$('.followed').html(followView.render().$el);
     }

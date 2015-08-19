@@ -9,6 +9,7 @@ Grounded.Views.PropertyModal = Backbone.View.extend({
 
   events: {
     'click .close' : 'removeModal',
+    'click #side-bar' : 'removeModal'
   },
 
   template: JST['properties/modal'],
