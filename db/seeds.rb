@@ -21,9 +21,11 @@ User.create!([
   {email: "fayekeegan@gmail.com", password_digest: "$2a$10$YnfY7YucIZ9xjAV0YiAjzeOc13xc4t2rQ8f7d.g/TaU2rLFdrglZ6", session_token: "wtFfqiQGwULU_zSOIl9lPg", phone_number: nil, admin: nil},
   {email: "sandersbrad@gmail.com", password_digest: "$2a$10$T8sQpHKcjmKcnO5IvZUTY.k4rB/7nauq2q8mrJmfUPabCKwBzUMQi", session_token: "6p94ImONfgptnTkafUwGDw", phone_number: nil, admin: nil}
 ])
-# Investment.create([
-#   {user_id: 1, property_id: 1, pending: false},
-#   {user_id: 1, property_id: 1, pending: false},
-#   {user_id: 2, property_id: 1, pending: true},
-#   {user_id: 3, property_id: 1, pending: true}
-#   ])
+Investment.create([
+  {user_id: 1, property_id: 1, pending: false, percentage: 4, initial: true},
+  {user_id: 2, property_id: 1, pending: true,  percentage: 12},
+  {user_id: 3, property_id: 1, pending: true,  percentage: 15},
+  {user_id: 3, property_id: 2, pending: false, percentage: 7, initial: true},
+  {user_id: 1, property_id: 2, pending: true,  percentage: 3},
+  {user_id: 2, property_id: 2, pending: true,  percentage: 15}
+])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819183732) do
+ActiveRecord::Schema.define(version: 20150819203655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,11 +35,13 @@ ActiveRecord::Schema.define(version: 20150819183732) do
   end
 
   create_table "investments", force: :cascade do |t|
-    t.integer  "user_id",                    null: false
-    t.integer  "property_id",                null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "user_id",                     null: false
+    t.integer  "property_id",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.boolean  "pending",     default: true
+    t.integer  "percentage",                  null: false
+    t.boolean  "initial",     default: false
   end
 
   create_table "properties", force: :cascade do |t|

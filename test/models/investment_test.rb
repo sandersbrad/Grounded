@@ -8,6 +8,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  pending     :boolean          default(TRUE)
+#  percentage  :integer          not null
+#  initial     :boolean          default(FALSE)
 #
 
 require 'test_helper'

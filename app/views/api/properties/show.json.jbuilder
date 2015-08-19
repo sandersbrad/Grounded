@@ -16,4 +16,28 @@ json.images do
 end
 
 json.followers @property.followers, :id, :email
-json.investors @property.investors.count
+
+json.investments do
+  json.initial @property.investments.where(initial: true)
+  json.pending do
+    json.array! @property.investments.where(pending: true, initial: false) do |investment|
+      json.id investment.id
+      json.user_id  investment.user_id
+      json.percentage investment.percentage
+      json.initial investment.initial
+      json.created_at investment.created_at
+    end
+  end
+  json.confirmed do
+    json.array! @property.investments.where(pending: false) do |investment|
+      json.id investment.id
+      json.user_id  investment.user_id
+      json.percentage investment.percentage
+      json.initial investment.initial
+      json.created_at investment.created_at
+    end
+  end
+  json.total_confirmed @property.investments.where(pending:false).sum(:percentage)
+  json.total_pending @property.investments.where(pending:true, initial: false).sum(:percentage)
+  json.total_overall @property.investments.sum(:percentage)
+end
