@@ -121,7 +121,7 @@ img.brand {
 }
 
 img.nav-logo {
-  height: 50px;
+  height: 195%;
   padding-left: 20px;
 }
 
@@ -133,9 +133,11 @@ img.nav-logo {
   background: #F8F8F8;
   height: 100vh;
   padding-right: 0;
+  padding-top: 110px;
 }
 
 div#content.container {
+  top: 52px;
   padding: 0;
 }
 
@@ -272,4 +274,20 @@ div.index-item-box {
 .properties.container-fluid.col-md-4 {
   position: absolute;
   margin-top: 10px;
+}
+
+.property-modal {
+  // height: 500px;
+  // width: 500px;
+  background: rgba(248, 248, 248, 0.84);
+  border: 1px solid #000689;
+  border-radius: 5px;
+  display: inline-block;
+  z-index: 50;
+  right: 20px;
+  top: 15px;
+  height: 90vh;
+  width: 65%;
+  img { height: inherit; }
+  position: absolute;
 }

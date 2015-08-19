@@ -17,26 +17,6 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
     this.onRender();
     return this;
   },
-  //
-  // makeRequest: function() {
-  //   debugger
-  //   $.ajax({
-  //     url: 'https://www.zillow.com/webservice/GetDemographics.htm',
-  //     data: 'city=' + this.model.get('city') + "&state=" + this.model.get('state') + '&zwsid=X1-ZWz1a4ttzh2l8r_2xcn2',
-  //     dataType: 'json',
-  //     success: function (resp) {
-  //       debugger
-  //     },
-  //     error: function () {
-  //       debugger
-  //     }
-  //   });
-  },
-  //
-  // attachZillow: function (response) {
-  //
-  // },
-
 
   onRender: function () {
     if(this.model.images().length > 0){
@@ -49,11 +29,16 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
     }
     this.addMap();
     this.mapView.initMap();
+    this.addZillowChart();
   },
 
   addCarouselImage: function (image_url) {
     var $carousel = this.$('.carousel-inner');
     $carousel.append('<div class="item"><img u="image" src=' + image_url + '></div>');
+  },
+
+  addZillowChart: function () {
+    this.$('.zillow-chart').html('<img src=' + this.model.get('zillow_chart') + '>')
   },
 
   uploadImage: function () {

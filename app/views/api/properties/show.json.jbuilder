@@ -1,8 +1,6 @@
 json.extract! @property, *@property.attributes.keys
 # json.extract! @zillow, *@zillow.attributes.keys
-json.zillow @zillow do |k, v|
-  json.k v
-end
+json.zillow_chart @zillow_chart
 
 if current_user
   json.current_user_follow current_user.follows.find_by(property_id: @property.id)

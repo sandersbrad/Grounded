@@ -335,7 +335,6 @@ Grounded.Views.Slider = Backbone.View.extend({
       min: 2,
       max: 10,
       value: 7,
-      create: this.refreshValues.bind(this),
       slide: this.refreshValues.bind(this),
       change: this.refreshValues.bind(this)
     });
@@ -344,7 +343,6 @@ Grounded.Views.Slider = Backbone.View.extend({
       max: 1,
       value: 0.02,
       step: 0.01,
-      create: this.refreshValues.bind(this),
       slide: this.refreshValues.bind(this),
       change: this.refreshValues.bind(this)
     });
@@ -353,7 +351,6 @@ Grounded.Views.Slider = Backbone.View.extend({
       max: 1,
       value: 0.80,
       step: 0.01,
-      create: this.refreshValues.bind(this),
       slide: this.refreshValues.bind(this),
       change: this.refreshValues.bind(this)
     });

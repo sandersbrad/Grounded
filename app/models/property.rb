@@ -45,17 +45,19 @@ class Property < ActiveRecord::Base
   after_validation :geocode
 
 
+
+  def get_zillow_chart
+    response = HTTParty.get('https://www.zillow.com/webservice/GetChart.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + self.zpid + '&unit-type=dollar&height=300&width=500')
+    response["chart"]["response"]["url"]
+  end
+
+  private
+
   def get_zpid
     response = HTTParty.get('https://www.zillow.com/webservice/GetDeepSearchResults.htm?' + URI.encode(zillow_query)).parsed_response
     self.zpid = response["searchresults"]["response"]["results"]["result"]["zpid"]
     save
   end
-
-  def get_zillow_data
-    response = HTTParty.get('https://www.zillow.com/webservice/GetChart.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + get_zpid + '&unit-type=dollar')
-  end
-
-  private
 
   def full_street_address
     self.street_number + ' ' + self.street + ', ' + self.city + ', ' + self.state
