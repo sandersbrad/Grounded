@@ -5,8 +5,7 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
 
   events: {
     'click .toggle_follow': 'toggleFollow',
-    'click .toggle_invest': 'toggleInvest',
-    'click div.index-item-box': 'showModal'
+    'click .toggle_invest': 'toggleInvest'
   },
 
   initialize: function (options) {
@@ -29,11 +28,11 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
     }
   },
 
-  showModal: function (event) {
-    event.preventDefault();
+  showModal: function () {
     var modal = new Grounded.Views.PropertyModal({ model: this.model });
     $('.index-parent').append(modal.$el);
     modal.render();
+    return modal;
   },
 
   toggleInvest: function (event) {

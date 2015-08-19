@@ -28,10 +28,6 @@ div.splash {
   position: relative;
 }
 
-div.container #content {
-  position: relative;
-}
-
 div.index-parent {
   position: relative;
 }
@@ -43,9 +39,9 @@ div.index-parent {
 
 .map {
   position: fixed;
+  top: 50px;
   height: 100vh;
-  width: 100vw;
-
+  width: 83.333333333333333%;
 }
 
 body #map-canvas-full-screen {
@@ -80,6 +76,7 @@ img.brand {
   background-color: #f8f8f8;
   border: none;
   margin-bottom: 0px;
+  z-index: 1;
 }
 
 .modal-footer {
@@ -137,11 +134,15 @@ img.nav-logo {
   height: 100vh;
   padding-right: 0;
   padding-top: 110px;
+  position: fixed;
+  z-index: 20;
 }
 
 div#content.container {
   top: 52px;
   padding: 0;
+  position: relative;
+  margin-left: 16.6666666666666666666666%;
 }
 
 div#sidebar.container {

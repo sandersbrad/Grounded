@@ -9,7 +9,6 @@ Grounded.Views.PropertyModal = Backbone.View.extend({
 
   events: {
     'click .close' : 'removeModal',
-    'click #side-bar' : 'removeModal'
   },
 
   template: JST['properties/modal'],
@@ -36,8 +35,7 @@ Grounded.Views.PropertyModal = Backbone.View.extend({
     this.$('.zillow-chart').html('<img src=' + this.model.get('zillow_chart') + '>');
   },
 
-  removeModal: function (event) {
-    event.preventDefault();
+  removeModal: function () {
     this.remove();
   }
 

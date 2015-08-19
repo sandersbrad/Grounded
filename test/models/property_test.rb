@@ -18,6 +18,7 @@
 #  updated_at    :datetime         not null
 #  latitude      :float
 #  longitude     :float
+#  zpid          :string
 #
 
 require 'test_helper'

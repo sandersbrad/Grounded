@@ -1,8 +1,12 @@
-<div class='index-item-box'>
+<div class='index-item-box' data='<%= property.id %>'>
   <div class='row'>
     <div class='col-md-4' style=' overflow: hidden; content: center'>
       <div class='thumb'>
-        <img src='<%= property.images()[0].escape('thumb_url') %>' height=90>
+          <% if (property.images().length > 0) {%>
+            <img src='<%= property.images()[0].escape('thumb_url') %>' height=90>
+          <% } else {%>
+            <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1439765104/no_image_na31i5.png" height=90>
+          <% } %>
       </div>
 
       <div class="property_price">

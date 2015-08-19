@@ -12,7 +12,8 @@ Image.create!([
 Property.create!([
   {street_number: "26", unit: nil, street: "Lexington St", city: "San Francisco", state: "CA", zip: "94110", description: nil, num_beds: 4, num_baths: 1, price: 1000000, property_type: "Apartment"},
   {street_number: "2822", unit: nil, street: "Octavia St", city: "San Francisco", state: "CA", zip: "94114", description: nil, num_beds: 4, num_baths: 1, price: 1200000, property_type: "Apartment"},
-  {street_number: "99", unit: nil, street: "Walter St", city: "San Francisco", state: "CA", zip: "94118", description: nil, num_beds: 3, num_baths: 1, price: 1400000, property_type: "Apartment"}
+  {street_number: "99", unit: nil, street: "Walter St", city: "San Francisco", state: "CA", zip: "94118", description: nil, num_beds: 3, num_baths: 1, price: 1400000, property_type: "Apartment"},
+  {street_number: "2323", unit: nil, street: "Lake St", city: "San Francisco", state: "CA", zip: "94121", description: nil, num_beds: 4, num_baths: 3, price: 4900000, property_type: "House"}
 ])
 User.create!([
   {email: "fayekeegan@gmail.com", password_digest: "$2a$10$YnfY7YucIZ9xjAV0YiAjzeOc13xc4t2rQ8f7d.g/TaU2rLFdrglZ6", session_token: "wtFfqiQGwULU_zSOIl9lPg", phone_number: nil, admin: nil},

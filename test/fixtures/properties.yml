@@ -18,6 +18,7 @@
 #  updated_at    :datetime         not null
 #  latitude      :float
 #  longitude     :float
+#  zpid          :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
