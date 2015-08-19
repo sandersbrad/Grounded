@@ -61,17 +61,3 @@
 
 <div class='container col-md-2' id='side-bar'></div>
 <div class="container col-md-10" id='content'></div>
-
-
-<script>
-  $(document).ready(function(){
-    <% if current_user %>
-      Grounded.CURRENT_USER = {
-         "email": "<%= current_user.email %>",
-         "id": "<%= current_user.id %>"
-       }
-    <% end %>
-
-    Grounded.initialize();
-  });
-</script>

@@ -7,6 +7,7 @@
 #  property_id :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  pending     :boolean          default(TRUE)
 #
 
 require 'test_helper'
