@@ -21,8 +21,6 @@ Grounded.Views.Slider = Backbone.View.extend({
     this.homeInsAnPerc = 0.0044;
     this.homeRepAnPerc = 0.01;
     this.oppCostReturn = 0.0528;
-    // this.refreshValues();
-    // this.refreshTable();
   },
 
   CUMPRINC: function(rate, periods, value, start, end, type) {
@@ -202,7 +200,7 @@ Grounded.Views.Slider = Backbone.View.extend({
 
     var value = this.price;
 
-    while ( n > 1 ) {
+    while ( n >= 1 ) {
       value = value * Math.pow(1 + this.anHomeValInc, n)/Math.pow((1 + this.inflation), (n - 0.5));
       n -= 1;
     }
@@ -337,7 +335,6 @@ Grounded.Views.Slider = Backbone.View.extend({
       min: 2,
       max: 10,
       value: 7,
-      create: this.refreshValues.bind(this),
       slide: this.refreshValues.bind(this),
       change: this.refreshValues.bind(this)
     });
@@ -346,7 +343,6 @@ Grounded.Views.Slider = Backbone.View.extend({
       max: 1,
       value: 0.02,
       step: 0.01,
-      create: this.refreshValues.bind(this),
       slide: this.refreshValues.bind(this),
       change: this.refreshValues.bind(this)
     });
@@ -355,7 +351,6 @@ Grounded.Views.Slider = Backbone.View.extend({
       max: 1,
       value: 0.80,
       step: 0.01,
-      create: this.refreshValues.bind(this),
       slide: this.refreshValues.bind(this),
       change: this.refreshValues.bind(this)
     });
@@ -398,9 +393,4 @@ Grounded.Views.Slider = Backbone.View.extend({
     this.$('#ongoingSpending-own').html(this.ownTotalOngoing());
     this.$('#excessInvest-rental').html(this.rentExcessInvest());
   }
-
-
-
 });
-
-// _.extend(Grounded.Views.Slider.prototype, Grounded.Mixins.Financial)
