@@ -14,4 +14,6 @@ json.array! @properties do |property|
       json.thumb_url image.thumb_url
     end
   end
+
+  json.zillow_chart property.get_zillow_chart
 end

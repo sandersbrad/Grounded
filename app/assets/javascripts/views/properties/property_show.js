@@ -2,7 +2,7 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-
+    // this.listenTo(this.model, 'sync', this.makeRequest);
   },
 
   template: JST['properties/show'],
@@ -18,7 +18,6 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
     return this;
   },
 
-
   onRender: function () {
     if(this.model.images().length > 0){
       this.$('.carousel-inner').empty();
@@ -30,11 +29,16 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
     }
     this.addMap();
     this.mapView.initMap();
+    this.addZillowChart();
   },
 
   addCarouselImage: function (image_url) {
     var $carousel = this.$('.carousel-inner');
     $carousel.append('<div class="item"><img u="image" src=' + image_url + '></div>');
+  },
+
+  addZillowChart: function () {
+    this.$('.zillow-chart').html('<img src=' + this.model.get('zillow_chart') + '>')
   },
 
   uploadImage: function () {

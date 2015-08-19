@@ -14,6 +14,7 @@ class Api::PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
+    @zillow_chart = @property.get_zillow_chart
   end
 
   def zillow_search
