@@ -20,7 +20,7 @@ class Api::InvestmentsController < ApplicationController
   private
 
   def investment_params
-    params.require(:investment).permit(:user_id, :property_id)
+    params.require(:investment).permit(:user_id, :property_id, :percentage)
   end
 
 end

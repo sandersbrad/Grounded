@@ -27,5 +27,7 @@ Investment.create([
   {user_id: 3, property_id: 1, pending: true,  percentage: 15},
   {user_id: 3, property_id: 2, pending: false, percentage: 7, initial: true},
   {user_id: 1, property_id: 2, pending: true,  percentage: 3},
-  {user_id: 2, property_id: 2, pending: true,  percentage: 15}
+  {user_id: 2, property_id: 2, pending: true,  percentage: 15},
+  {user_id: 3, property_id: 3, pending: false, percentage: 10, initial: true},
+  {user_id: 3, property_id: 4, pending: false, percentage: 25, initial: true}
 ])

@@ -1,4 +1,4 @@
-Grounded.Views.PropertyModal = Backbone.View.extend({
+Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
 
   tagName: 'div',
   className: 'property-modal col-md-8',
@@ -12,7 +12,7 @@ Grounded.Views.PropertyModal = Backbone.View.extend({
   events: {
     'click .close' : 'removeModal',
     'click .toggle_follow': 'toggleFollow',
-    'click .toggle_invest': 'toggleInvest'
+    'click .toggle_invest': 'showInvestForm'
   },
 
   toggleFollow: function (event) {
@@ -21,6 +21,13 @@ Grounded.Views.PropertyModal = Backbone.View.extend({
     } else {
       this.followProperty();
     }
+  },
+
+  showInvestForm: function () {
+    var view = new Grounded.Views.InvestForm({ model: this.model });
+    this.addSubview('.prop-modal-btns', view);
+    // this.$('.prop-modal-btns').append(view.render().$el);
+    // view.delegateEvents();
   },
 
   followProperty: function() {
@@ -46,6 +53,7 @@ Grounded.Views.PropertyModal = Backbone.View.extend({
     var content = this.template({ property: this.model });
     this.$el.html(content);
     this.onRender();
+    this.attachSubviews();
     return this;
   },
 

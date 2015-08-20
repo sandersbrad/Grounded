@@ -27,7 +27,6 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
   },
 
   addPropertyView: function (property) {
-    debugger
     var subview = new Grounded.Views.PropertiesIndexItem({ model: property });
     this.addSubview('.properties', subview);
     this._subviews[property.id] = subview;

@@ -11,7 +11,7 @@ Grounded.Views.Map = Backbone.View.extend({
 
   initMap: function () {
     var mapOptions = {
-      center: { lat: 37.7833, lng: -122.4167 },
+      center: { lat: 37.77, lng: -122.5 },
       zoom: 12,
       scrollwheel: false,
       zoomControlOptions: {
@@ -31,9 +31,6 @@ Grounded.Views.Map = Backbone.View.extend({
         position: google.maps.ControlPosition.BOTTOM_RIGHT
       },
       streetViewControl: true,
-      streetViewControlOptions: {
-        position: google.maps.ControlPosition.BOTTOM_RIGHT
-      }
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
