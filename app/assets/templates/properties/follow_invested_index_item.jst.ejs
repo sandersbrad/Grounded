@@ -9,11 +9,11 @@
 
 <div class='panel-body'>
   <div class="progress">
-    <div class="progress-bar progress-bar-info" style="width: <%= property.attributes.investments.total_confirmed %>%">
-      <span class="sr-only"><%= property.attributes.investments.total_confirmed %>%</span>
+    <div class="progress-bar progress-bar-info" style="width: <%= property.investments().total_confirmed() %>%">
+      <span class="sr-only"><%= property.investments().total_confirmed() %>%</span>
     </div>
-    <div class="progress-bar progress-bar-success" style="width: <%= property.attributes.investments.total_pending %>%">
-      <span class="sr-only"><%= property.attributes.investments.total_pending %></span>
+    <div class="progress-bar progress-bar-success" style="width: <%= property.investments().total_pending() %>%">
+      <span class="sr-only"><%= property.investments().total_pending() %></span>
     </div>
   </div>
 </div>

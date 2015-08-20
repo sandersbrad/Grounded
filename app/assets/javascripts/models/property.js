@@ -17,7 +17,11 @@ Grounded.Models.Property = Backbone.Model.extend({
         this.images().push(new Grounded.Models.Image(image));
       }.bind(this));
     }
-
+    //Makes an investment collection from properties api
+    if (response.investments) {
+      this.investments().set(response.investments);
+      delete response.investments;
+    }
     return response;
   },
 
@@ -41,7 +45,16 @@ Grounded.Models.Property = Backbone.Model.extend({
     }
     return this._current_user_invested;
   },
-  
+
+  investments: function () {
+    if (!this._investments) {
+      this._investments = new Grounded.Collections.Investments([], {
+        property: this
+      });
+    }
+    return this._investments;
+  },
+
   // A new model won't have an id, so returns true if isNew()?
   isFollowed: function () {
     return !this.current_user_follow().isNew();

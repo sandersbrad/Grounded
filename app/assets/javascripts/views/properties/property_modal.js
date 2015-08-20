@@ -46,7 +46,7 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
     var view = new Grounded.Views.InvestForm({ model: this.model });
     this.addSubview('.prop-modal-btns', view);
   },
-  
+
   investProperty: function (event) {
     event.preventDefault();
     var percentage = $(event.currentTarget).find('input[type=number]').val();
@@ -57,9 +57,12 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
       percentage: percentage
     };
 
-    this.model.current_user_invested().save(investmentAttrs, {
+    var investment = this.model.current_user_invested();
+
+    investment.save(investmentAttrs, {
       success: function () {
         Grounded.investedCollection.add(this.model);
+        this.model.investments().add(investment);
       }.bind(this)
     });
     if (this.model.current_user_follow()) {

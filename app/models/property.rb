@@ -43,8 +43,7 @@ class Property < ActiveRecord::Base
 
   geocoded_by :full_street_address
   after_initialize :get_zpid
-  after_validation :geocode if self.latitude.nil? || self.longitude.nil?
-
+  after_validation :geocode
 
 
   def get_zillow_chart
@@ -67,5 +66,6 @@ class Property < ActiveRecord::Base
   def zillow_query
     'zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&address=' + self.street_number + ' ' + self.street + '&citystatezip=' + self.city + ', ' + self.state
   end
+
 
 end

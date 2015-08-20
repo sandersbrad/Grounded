@@ -5,6 +5,7 @@ Grounded.Views.FollowInvestedIndexItem = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model.investments(), 'add remove', this.render);
   },
 
   template: JST['properties/follow_invested_index_item'],

@@ -13,7 +13,6 @@ Grounded.Routers.Router = Backbone.Router.extend({
     '': 'propertiesIndex',
     'about': 'aboutPage',
     'faq': 'frequentlyAskedQuestions',
-    'properties/:id': 'show',
     'contact': 'contactUs',
     'slider': 'slider',
     'map': 'mapShow'
@@ -46,13 +45,6 @@ Grounded.Routers.Router = Backbone.Router.extend({
     this.collection.fetch();
   },
 
-  show: function (id) {
-    var model = this.collection.getOrFetch(id);
-    var view = new Grounded.Views.PropertyShow({ model: model });
-    this._swapViews(view);
-  },
-
-
   sidebar: function () {
     var view = new Grounded.Views.Sidebar({});
     this.$sidebar.html(view.render().$el);
@@ -62,7 +54,7 @@ Grounded.Routers.Router = Backbone.Router.extend({
       Grounded.investedCollection.fetch();
     }
   },
-  
+
   slider: function () {
     var view = new Grounded.Views.Slider();
     this._swapViews(view);
