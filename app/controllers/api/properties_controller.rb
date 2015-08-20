@@ -16,10 +16,4 @@ class Api::PropertiesController < ApplicationController
     @property = Property.includes(:investments).find(params[:id])
     @zillow_chart = @property.get_zillow_chart
   end
-
-  def zillow_search
-
-  end
-
-
 end

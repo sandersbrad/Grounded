@@ -10,20 +10,19 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
     this.addMapSubview();
   },
 
+  template: JST['properties/index'],
   events: {
     'click properties': 'removeModal',
     'click div.index-item-box' : 'showModal',
     'click div.map': 'removeModal'
   },
 
-  showModal: function (event) {
-    this._currentModal && this._currentModal.removeModal();
-    var propId = $(event.currentTarget).attr('data');
-    this._currentModal = this._subviews[propId].showModal();
-  },
-
-  removeModal: function () {
-    this._currentModal && this._currentModal.removeModal();
+  render: function () {
+    var content = this.template();
+    this.$el.html(content);
+    this.attachSubviews();
+    this.mapSubview.initMap();
+    return this;
   },
 
   addPropertyView: function (property) {
@@ -37,13 +36,13 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
     this.addSubview('.map', this.mapSubview);
   },
 
-  template: JST['properties/index'],
+  removeModal: function () {
+    this._currentModal && this._currentModal.removeModal();
+  },
 
-  render: function () {
-    var content = this.template();
-    this.$el.html(content);
-    this.attachSubviews();
-    this.mapSubview.initMap();
-    return this;
+  showModal: function (event) {
+    this._currentModal && this._currentModal.removeModal();
+    var propId = $(event.currentTarget).attr('data');
+    this._currentModal = this._subviews[propId].showModal();
   }
 });

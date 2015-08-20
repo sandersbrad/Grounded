@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
   def new
-    @hide_sign_up = true
-
-    if params[:user]
-      @user = User.new(user_params)
-    else
-      @user = User.new
-    end
+    @user = User.new
   end
 
   def create

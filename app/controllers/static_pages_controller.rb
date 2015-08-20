@@ -7,7 +7,6 @@ class StaticPagesController < ApplicationController
     if current_user
       render :root
     else
-      @hide_sign_up = true
       render :index
     end
   end

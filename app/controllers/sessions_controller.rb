@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    @hide_sign_in = true
     user = User.new
   end
 

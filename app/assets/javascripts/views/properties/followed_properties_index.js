@@ -7,8 +7,16 @@ Grounded.Views.FollowPropertiesIndex = Backbone.CompositeView.extend({
     this.collection.each(this.addPropertyView.bind(this));
   },
 
+  template: JST['properties/follow_properties'],
   tagName: 'div',
   className: 'followed_properties_side',
+
+  render: function () {
+    var content = this.template();
+    this.$el.html(content);
+    this.attachSubviews();
+    return this;
+  },
 
   addPropertyView: function (property) {
     var subview = new Grounded.Views.FollowInvestedIndexItem({ model: property });
@@ -17,14 +25,5 @@ Grounded.Views.FollowPropertiesIndex = Backbone.CompositeView.extend({
 
   removePropertyView: function (property) {
     this.removeModelSubview('.follow_properties', property);
-  },
-
-  template: JST['properties/follow_properties'],
-
-  render: function () {
-    var content = this.template();
-    this.$el.html(content);
-    this.attachSubviews();
-    return this;
   }
 });

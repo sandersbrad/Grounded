@@ -30,6 +30,8 @@ Grounded.Views.InvestForm = Backbone.View.extend({
         Grounded.investedCollection.add(this.model);
       }.bind(this)
     });
+
+    this.remove();
   }
 
 });

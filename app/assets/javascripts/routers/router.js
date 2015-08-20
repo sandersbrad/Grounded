@@ -19,23 +19,6 @@ Grounded.Routers.Router = Backbone.Router.extend({
     'map': 'mapShow'
   },
 
-  mapShow: function () {
-    var view = new Grounded.Views.Map();
-    this._swapViews(view);
-    view.initMap();
-  },
-
-  slider: function () {
-    var view = new Grounded.Views.Slider();
-    this._swapViews(view);
-  },
-
-  propertiesIndex: function () {
-    var view = new Grounded.Views.PropertiesIndex({ collection: this.collection });
-    this._swapViews(view);
-    this.collection.fetch();
-  },
-
   aboutPage: function () {
     var view = new Grounded.Views.About();
     this._swapViews(view);
@@ -51,11 +34,24 @@ Grounded.Routers.Router = Backbone.Router.extend({
     this._swapViews(view);
   },
 
+  mapShow: function () {
+    var view = new Grounded.Views.Map();
+    this._swapViews(view);
+    view.initMap();
+  },
+
+  propertiesIndex: function () {
+    var view = new Grounded.Views.PropertiesIndex({ collection: this.collection });
+    this._swapViews(view);
+    this.collection.fetch();
+  },
+
   show: function (id) {
     var model = this.collection.getOrFetch(id);
     var view = new Grounded.Views.PropertyShow({ model: model });
     this._swapViews(view);
   },
+
 
   sidebar: function () {
     var view = new Grounded.Views.Sidebar({});
@@ -65,6 +61,11 @@ Grounded.Routers.Router = Backbone.Router.extend({
       Grounded.followCollection.fetch();
       Grounded.investedCollection.fetch();
     }
+  },
+  
+  slider: function () {
+    var view = new Grounded.Views.Slider();
+    this._swapViews(view);
   },
 
   _swapViews: function (view) {

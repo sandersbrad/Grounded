@@ -18,6 +18,9 @@ Grounded.Views.Map = Backbone.View.extend({
         style: google.maps.ZoomControlStyle.SMALL,
         position: google.maps.ControlPosition.BOTTOM_RIGHT
       },
+      panControlOptions: {
+        position: google.maps.ControlPosition.BOTTOM_RIGHT
+      },
       streetView: {
         panControlOptions: {
           position: google.maps.ControlPosition.BOTTOM_RIGHT
@@ -26,9 +29,6 @@ Grounded.Views.Map = Backbone.View.extend({
           style: google.maps.ZoomControlStyle.SMALL,
           position: google.maps.ControlPosition.BOTTOM_RIGHT
         }
-      },
-      panControlOptions: {
-        position: google.maps.ControlPosition.BOTTOM_RIGHT
       },
       streetViewControl: true,
     };
@@ -55,7 +55,8 @@ Grounded.Views.Map = Backbone.View.extend({
     var marker = new google.maps.Marker({
       position: { lat: property.get('latitude'), lng: property.get('longitude') },
       map: this._map,
-      title: property.get('street_number') + ' ' + property.get('street')
+      title: property.get('street_number') + ' ' + property.get('street'),
+      property: property.id
     });
 
     google.maps.event.addListener(marker, 'click', function (event) {
