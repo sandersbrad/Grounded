@@ -3,15 +3,10 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
   tagName: 'div',
   className: 'property_index_item container-fluid',
 
-  events: {
-    'click .toggle_follow': 'toggleFollow',
-    'click .toggle_invest': 'toggleInvest'
-  },
-
   initialize: function (options) {
     this.listenTo(this.model, 'sync change:investors', this.render);
     this.listenTo(this.model.current_user_follow(), 'change', this.render);
-    this.listenTo(this.model.current_user_invested(), 'change', this.render);
+    this.listenTo(this.model.current_user_invested(), 'change', this.log);
   },
 
   render: function () {
@@ -20,30 +15,10 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
     return this;
   },
 
-  toggleFollow: function (event) {
-    if (this.model.isFollowed()){
-      this.unfollowProperty();
-    } else {
-      this.followProperty();
-    }
+  log: function () {
+    this.model.fetch();
   },
 
-  showModal: function () {
-    var modal = new Grounded.Views.PropertyModal({ model: this.model });
-    $('.index-parent').append(modal.$el);
-    modal.render();
-    return modal;
-  },
-
-  toggleInvest: function (event) {
-    if (this.model.isInvested()) {
-      this.model.set("investors", (this.model.get('investors') - 1));
-      this.uninvestProperty();
-    } else {
-      this.model.set("investors", this.model.get('investors') + 1);
-      this.investProperty();
-    }
-  },
 
   investProperty: function () {
     this.model.current_user_invested().save({ property_id: this.model.id,

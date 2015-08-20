@@ -43,7 +43,7 @@ class Property < ActiveRecord::Base
 
   geocoded_by :full_street_address
   after_initialize :get_zpid
-  after_validation :geocode
+  after_validation :geocode if self.latitude.nil? || self.longitude.nil?
 
 
 

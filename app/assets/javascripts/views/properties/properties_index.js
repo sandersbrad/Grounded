@@ -14,7 +14,7 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
   events: {
     'click properties': 'removeModal',
     'click div.index-item-box' : 'showModal',
-    'click div.map': 'removeModal'
+    'click div.map': 'removeModal',
   },
 
   render: function () {
@@ -37,12 +37,16 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
   },
 
   removeModal: function () {
-    this._currentModal && this._currentModal.removeModal();
+    this._currentModal && this._currentModal.remove();
   },
 
   showModal: function (event) {
-    this._currentModal && this._currentModal.removeModal();
+    this._currentModal && this._currentModal.remove();
     var propId = $(event.currentTarget).attr('data');
-    this._currentModal = this._subviews[propId].showModal();
-  }
+    var model = this.collection.getOrFetch(propId);
+    var subview = new Grounded.Views.PropertyModal({ model: model });
+    this.addSubview('.properties-modal', subview);
+    this._currentModal = subview;
+  },
+
 });

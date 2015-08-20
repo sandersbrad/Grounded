@@ -18,8 +18,9 @@ Property.create!([
   # {street_number: "2323", unit: nil, street: "Lake St", city: "San Francisco", state: "CA", zip: "94121", description: nil, num_beds: 4, num_baths: 3, price: 4900000, property_type: "House"}
 ])
 User.create!([
-  {email: "fayekeegan@gmail.com", password_digest: "$2a$10$YnfY7YucIZ9xjAV0YiAjzeOc13xc4t2rQ8f7d.g/TaU2rLFdrglZ6", session_token: "wtFfqiQGwULU_zSOIl9lPg", phone_number: nil, admin: nil},
-  {email: "sandersbrad@gmail.com", password_digest: "$2a$10$T8sQpHKcjmKcnO5IvZUTY.k4rB/7nauq2q8mrJmfUPabCKwBzUMQi", session_token: "6p94ImONfgptnTkafUwGDw", phone_number: nil, admin: nil}
+  {email: "fayekeegan@gmail.com", password: "dubmass", admin: nil},
+  {email: "sandersbrad@gmail.com", password: "dummypass", admin: nil},
+  {email: "chobbs47@gmail.com", password: "password", admin: nil}
 ])
 Investment.create([
   {user_id: 1, property_id: 1, pending: false, percentage: 4, initial: true},

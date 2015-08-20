@@ -14,13 +14,15 @@
       </button>
     <% } %>
 
-    <button class="toggle_invest">
-      <% if (property.isInvested()) { %>
-        Uninvest!
-      <% } else { %>
+    <% if (!property.isInvested()) { %>
+      <button class="toggle_invest">
         Invest in this Property
-      <% } %>
-    </button>
+      </button>
+    <% } else { %>
+      <div class='investment_pending'>
+        Investment Pending
+      </div>
+    <% } %>
   <% } %>
 </div>
 
