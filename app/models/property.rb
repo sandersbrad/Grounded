@@ -55,6 +55,7 @@ class Property < ActiveRecord::Base
 
   def get_zpid
     response = HTTParty.get('https://www.zillow.com/webservice/GetDeepSearchResults.htm?' + URI.encode(zillow_query)).parsed_response
+    debugger
     self.zpid = response["searchresults"]["response"]["results"]["result"]["zpid"]
     save
   end

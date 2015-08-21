@@ -298,6 +298,23 @@ button.toggle_invest {
   margin: 8px 8px 8px 0px;
 }
 
+div.modal-buttons {
+  float: right;
+}
+
+div.investment-form {
+  float: right;
+  width: 94%;
+  font-size: 16px;
+}
+
+div.investment-form input.submit {
+  background: none;
+  border: 4px solid #5CB85C;
+  padding: 6px 20px;
+  margin-left: 6px;
+}
+
 div.investment_pending {
   border: 4px solid #5CB85C;
   background: none;

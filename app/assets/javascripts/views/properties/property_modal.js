@@ -18,6 +18,7 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    debugger
     var content = this.template({ property: this.model });
     this.$el.html(content);
     this.onRender();
@@ -33,7 +34,7 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
 
   addDefaultImage: function () {
     if (this.model.images().length > 0) {
-      this.$('.default-image').html('<img src=' + this.model.images()[0].get('image_url') + '>');
+      this.$('.default-image').html('<img src=' + this.model.images()[0].get('image_url') + ' height=300 width=250>');
     }
   },
 
@@ -43,8 +44,8 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
 
 
   showInvestForm: function () {
-    var view = new Grounded.Views.InvestForm({ model: this.model });
-    this.addSubview('.prop-modal-btns', view);
+    this.investFormView = new Grounded.Views.InvestForm({ model: this.model });
+    this.addSubview('.modal-buttons', this.investFormView);
   },
 
   investProperty: function (event) {
@@ -63,12 +64,13 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
       success: function () {
         Grounded.investedCollection.add(this.model);
         this.model.investments().add(investment);
+        this.investFormView.remove();
       }.bind(this)
     });
     if (this.model.current_user_follow()) {
       this.unfollowProperty();
     }
-    this.remove();
+
   },
 
   followProperty: function() {

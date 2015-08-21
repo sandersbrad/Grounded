@@ -2,31 +2,34 @@
                                     aria-label="Close">
     <span aria-hidden="true">&times;</span>
 </button>
-<div class='prop-modal-btns'>
-  <% if (Grounded.CURRENT_USER) { %>
-    <% if (!property.isInvested()) {%>
-      <button class="toggle_follow">
-        <% if (property.isFollowed()) { %>
-          Quit Following Investments
-        <% } else { %>
-          Follow Investments
-        <% } %>
-      </button>
-    <% } %>
+<div class='modal-buttons'>
+  <div class='prop-modal-btns'>
+    <% if (Grounded.CURRENT_USER) { %>
+      <% if (!property.isInvested()) {%>
+        <button class="toggle_follow">
+          <% if (property.isFollowed()) { %>
+            Quit Following Investments
+          <% } else { %>
+            Follow Investments
+          <% } %>
+        </button>
+      <% } %>
 
-    <% if (!property.isInvested()) { %>
-      <button class="toggle_invest">
-        Invest in this Property
-      </button>
-    <% } else { %>
-      <div class='investment_pending'>
-        Investment Pending
-      </div>
+      <% if (!property.isInvested()) { %>
+        <button class="toggle_invest">
+          Invest in this Property
+        </button>
+      <% } else { %>
+        <div class='investment_pending'>
+          Investment Pending
+        </div>
+      <% } %>
     <% } %>
-  <% } %>
+  </div>
 </div>
 
+
 <div class='default-image' style="height: 300px; width: 250px">
-  <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1439765104/no_image_na31i5.png">
+  <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1439765104/no_image_na31i5.png" height=300 width=250>
 </div>
 <div class='zillow-chart'></div>

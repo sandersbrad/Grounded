@@ -21,15 +21,6 @@ Grounded.Views.Map = Backbone.View.extend({
       panControlOptions: {
         position: google.maps.ControlPosition.BOTTOM_RIGHT
       },
-      streetView: {
-        panControlOptions: {
-          position: google.maps.ControlPosition.BOTTOM_RIGHT
-        },
-        zoomControlOptions: {
-          style: google.maps.ZoomControlStyle.SMALL,
-          position: google.maps.ControlPosition.BOTTOM_RIGHT
-        }
-      },
       streetViewControl: true,
     };
 
