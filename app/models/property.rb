@@ -42,8 +42,8 @@ class Property < ActiveRecord::Base
   has_many :investors, through: :investments, source: :user
 
   geocoded_by :full_street_address
-  after_initialize :get_zpid
-  after_validation :geocode
+  after_initialize :get_zpid if self.zpid.nil?
+  after_validation :geocode if :needs_geocode?
 
 
   def get_zillow_chart
@@ -51,11 +51,14 @@ class Property < ActiveRecord::Base
     response["chart"]["response"]["url"]
   end
 
+  def needs_geocode?
+    self.latitude.nil? || self.longitude.nil?
+  end
+
   private
 
   def get_zpid
     response = HTTParty.get('https://www.zillow.com/webservice/GetDeepSearchResults.htm?' + URI.encode(zillow_query)).parsed_response
-    debugger
     self.zpid = response["searchresults"]["response"]["results"]["result"]["zpid"]
     save
   end

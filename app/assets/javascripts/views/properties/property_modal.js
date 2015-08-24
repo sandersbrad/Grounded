@@ -18,7 +18,6 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    debugger
     var content = this.template({ property: this.model });
     this.$el.html(content);
     this.onRender();
@@ -44,8 +43,9 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
 
 
   showInvestForm: function () {
+    this.investFormView && this.investFormView.remove();
     this.investFormView = new Grounded.Views.InvestForm({ model: this.model });
-    this.addSubview('.modal-buttons', this.investFormView);
+    this.addSubview('.modal-invest-form', this.investFormView);
   },
 
   investProperty: function (event) {
@@ -60,16 +60,19 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
 
     var investment = this.model.current_user_invested();
 
+    that = this;
     investment.save(investmentAttrs, {
       success: function () {
         Grounded.investedCollection.add(this.model);
-        this.model.investments().add(investment);
-        this.investFormView.remove();
-      }.bind(this)
+        that.model.investments().add(investment);
+        that.investFormView.remove();
+      }
     });
     if (this.model.current_user_follow()) {
       this.unfollowProperty();
     }
+
+    bootbox.alert("Investment registered.  A representative will contact you in 24 hours.");
 
   },
 

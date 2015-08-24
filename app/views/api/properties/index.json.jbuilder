@@ -15,7 +15,5 @@ json.array! @properties do |property|
     end
   end
 
-  json.zillow_chart property.get_zillow_chart
-
   json.investments property.investments
 end
