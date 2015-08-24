@@ -13,7 +13,8 @@ Grounded.Views.InvestForm = Backbone.View.extend({
     return this;
   },
 
-  updateValue: function () {
+  updateValue: function (event) {
+    event.preventDefault();
     var perc = $(event.currentTarget).find('input[type=number]').val();
     this.$('.percVal').html('$' + this.model.get('price') * (perc/100));
   },
