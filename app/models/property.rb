@@ -24,15 +24,9 @@
 class Property < ActiveRecord::Base
   require 'uri'
 
-  PROPERY_TYPES = [
-    "House",
-    "Apartment"
-  ]
-
   validates :street_number, :street, :city, :state, :zip, presence: true
   validates :num_beds, :num_baths, :price, presence: true
   validates_uniqueness_of :street_number, scope: [:unit, :street, :city, :state]
-  validates_inclusion_of :property_type, in: PROPERY_TYPES, message: "Invalid property type"
 
   has_many :follows
   has_many :investments
@@ -42,8 +36,14 @@ class Property < ActiveRecord::Base
   has_many :investors, through: :investments, source: :user
 
   geocoded_by :full_street_address
-  after_initialize :get_zpid
+  # after_initialize :fill_in_address
   after_validation :geocode if :needs_geocode?
+  attr_reader :response
+
+
+  def initialize
+    @response = fill_in_address
+  end
 
 
   def get_zillow_chart
@@ -52,22 +52,25 @@ class Property < ActiveRecord::Base
   end
 
   def zillow_info
-    fail
-    response = HTTParty.get('http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + self.zpid)
+    return HTTParty.get('http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + self.zpid)
   end
 
   def needs_geocode?
     self.latitude.nil? || self.longitude.nil?
   end
 
-  private
 
-  def get_zpid
-    return unless self.zpid.nil?
-    response = HTTParty.get('https://www.zillow.com/webservice/GetDeepSearchResults.htm?' + URI.encode(zillow_query)).parsed_response
-    self.zpid = response["searchresults"]["response"]["results"]["result"]["zpid"]
+  def fill_in_address
+    @response = HTTParty.get('https://www.zillow.com/webservice/GetDeepSearchResults.htm?' + URI.encode(zillow_query)).parsed_response["searchresults"]["response"]["results"]["result"]
+    self.zpid ||= @response["zpid"]
+    self.city ||= @response["address"]["city"]
+    self.state ||= @response["address"]["state"]
+    self.zip ||= @response["address"]["zipcode"]
     save
+    return @response
   end
+
+  private
 
   def full_street_address
     self.street_number + ' ' + self.street + ', ' + self.city + ', ' + self.state
