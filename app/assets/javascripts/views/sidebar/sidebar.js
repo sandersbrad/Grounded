@@ -6,9 +6,13 @@ Grounded.Views.Sidebar = Backbone.View.extend({
     this.listenTo(Grounded.investedCollection, 'change sync', this.render);
   },
 
+  events: {
+    'click #addNewProperty' : 'newForm'
+  },
+
   render: function () {
     this.$el.html(this.template());
-    
+
     if (Grounded.CURRENT_USER) {
       var followView = new Grounded.Views.FollowPropertiesIndex({ collection: Grounded.followCollection });
       var investedView = new Grounded.Views.InvestedPropertiesIndex({ collection: Grounded.investedCollection });
@@ -18,6 +22,10 @@ Grounded.Views.Sidebar = Backbone.View.extend({
     }
 
     return this;
+  },
+
+  newForm: function () {
+    Grounded.EventBus.trigger('newForm');
   }
 
 });

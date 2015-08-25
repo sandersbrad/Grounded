@@ -1,11 +1,11 @@
 Grounded.Views.NewPropertyIndexItem = Backbone.View.extend({
 
-  template: JST['properties/new_index'],
+  template: JST['forms/new_prop_index_item'],
   tagName: 'div',
   className: 'property_index_item container-fluid',
 
   events: {
-    'click button.addProperty' : 'addProperty'
+    'submit form' : 'addProperty'
   },
 
   initialize: function () {
@@ -19,10 +19,17 @@ Grounded.Views.NewPropertyIndexItem = Backbone.View.extend({
   },
 
   addProperty: function (event) {
+    event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
+    debugger
     this.model.save(formData, {
-      success: this.collection.add(this.model)
-    }.bind(this));
+      success: function () {
+        this.collection.add(this.model);
+      }.bind(this),
+      error: function (response, some, other) {
+        console.log(response);
+      }
+    });
   }
 
 });

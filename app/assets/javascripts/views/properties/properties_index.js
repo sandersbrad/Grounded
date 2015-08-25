@@ -8,13 +8,15 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'sync', this.addMapSubview);
     this.collection.each(this.addPropertyView.bind(this));
     this.addMapSubview();
+    this.addNewPropertyView();
   },
 
   template: JST['properties/index'],
+
   events: {
     'click properties': 'removeModal',
-    'click div.index-item-box' : 'showModal',
-    'click div.map': 'removeModal',
+    'click div.index-item-box.property' : 'showModal',
+    'click div.map': 'removeModal'
   },
 
   render: function () {
@@ -49,4 +51,10 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
     this._currentModal = subview;
   },
 
+  addNewPropertyView: function () {
+    this.newPropSubview && this.newPropSubview.remove();
+    var model = new Grounded.Models.Property();
+    this.newPropSubview = new Grounded.Views.NewPropertyIndexItem({ collection: this.collection, model: model });
+    this.addSubview('.properties', this.newPropSubview);
+  }
 });

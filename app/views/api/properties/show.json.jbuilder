@@ -6,12 +6,12 @@ if current_user
   json.current_user_follow current_user.follows.find_by(property_id: @property.id)
 end
 
-json.zestimate @response["zestimate"]["amount"]["__content__"]
-json.zindexvalue @response["localRealEstate"]["region"]["zindexValue"]
-json.area @response["localRealEstate"]["region"]["name"]
-json.areatype @response["localRealEstate"]["region"]["type"]
-json.property_type @response["useCode"]
-json.num_baths @response["bathrooms"]
+json.zestimate @property.response["zestimate"]["amount"]["__content__"]
+json.zindexvalue @property.response["localRealEstate"]["region"]["zindexValue"]
+json.area @property.response["localRealEstate"]["region"]["name"]
+json.areatype @property.response["localRealEstate"]["region"]["type"]
+json.property_type @property.response["useCode"]
+json.num_baths @property.response["bathrooms"]
 
 json.images do
   json.array! @property.images do |image|

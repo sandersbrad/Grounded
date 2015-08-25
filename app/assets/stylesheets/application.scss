@@ -22,6 +22,17 @@ div.splash {
   text-align: center;
 }
 
+a.sidebar-nav {
+  color: #777;
+  display: table;
+  margin: 0 auto;
+}
+
+a.sidebar-nav:hover {
+  color: black;
+  text-decoration: none;
+}
+
 div.percVal{
   display: inline-block;
 }

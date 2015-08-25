@@ -36,14 +36,9 @@ class Property < ActiveRecord::Base
   has_many :investors, through: :investments, source: :user
 
   geocoded_by :full_street_address
-  # after_initialize :fill_in_address
+  after_initialize :fill_in_address
   after_validation :geocode if :needs_geocode?
   attr_reader :response
-
-
-  def initialize
-    @response = fill_in_address
-  end
 
 
   def get_zillow_chart
@@ -67,7 +62,7 @@ class Property < ActiveRecord::Base
     self.state ||= @response["address"]["state"]
     self.zip ||= @response["address"]["zipcode"]
     save
-    return @response
+    @response
   end
 
   private

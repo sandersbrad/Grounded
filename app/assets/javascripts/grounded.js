@@ -12,7 +12,6 @@ window.Grounded = {
       $rootEl: $rootEl,
       $sidebar: $sidebar
     });
-
     Backbone.history.start();
   }
 };
