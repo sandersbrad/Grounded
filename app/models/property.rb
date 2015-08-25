@@ -66,8 +66,6 @@ class Property < ActiveRecord::Base
     @response
   end
 
-  private
-
   def full_street_address
     self.street_number + ' ' + self.street + ', ' + self.city + ', ' + self.state
   end
