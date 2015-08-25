@@ -52,9 +52,13 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
   },
 
   addNewPropertyView: function () {
-    this.newPropSubview && this.newPropSubview.remove();
-    var model = new Grounded.Models.Property();
-    this.newPropSubview = new Grounded.Views.NewPropertyIndexItem({ collection: this.collection, model: model });
-    this.addSubview('.properties', this.newPropSubview);
+    if (Grounded.CURRENT_USER) {
+      this.newPropSubview && this.newPropSubview.remove();
+      var model = new Grounded.Models.Property();
+      this.newPropSubview = new Grounded.Views.NewPropertyIndexItem({ collection: this.collection, model: model });
+      this.addSubview('.properties', this.newPropSubview);
+    } else {
+      return;
+    }
   }
 });
