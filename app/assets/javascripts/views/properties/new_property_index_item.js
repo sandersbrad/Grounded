@@ -21,12 +21,11 @@ Grounded.Views.NewPropertyIndexItem = Backbone.View.extend({
   addProperty: function (event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
-    debugger
     this.model.save(formData, {
       success: function () {
         this.collection.add(this.model);
       }.bind(this),
-      error: function (response, some, other) {
+      error: function (model, response, other) {
         console.log(response);
       }
     });

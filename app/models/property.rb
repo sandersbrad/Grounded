@@ -10,10 +10,10 @@
 #  state         :string           not null
 #  zip           :string           not null
 #  description   :text
-#  num_beds      :integer          not null
-#  num_baths     :integer          not null
-#  price         :integer          not null
-#  property_type :string           not null
+#  num_beds      :integer
+#  num_baths     :integer
+#  price         :integer
+#  property_type :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  latitude      :float
@@ -24,8 +24,7 @@
 class Property < ActiveRecord::Base
   require 'uri'
 
-  validates :street_number, :street, :city, :state, :zip, presence: true
-  validates :num_beds, :num_baths, :price, presence: true
+  validates :street_number, :street, :city, :state, presence: true
   validates_uniqueness_of :street_number, scope: [:unit, :street, :city, :state]
 
   has_many :follows
@@ -42,7 +41,7 @@ class Property < ActiveRecord::Base
 
 
   def get_zillow_chart
-    response = HTTParty.get('https://www.zillow.com/webservice/GetChart.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + self.zpid + '&unit-type=dollar&height=300&width=500')
+    response = HTTParty.get('https://www.zillow.com/webservice/GetChart.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + self.zpid + '&unit-type=dollar&height=300&width=500').parsed_response
     response["chart"]["response"]["url"]
   end
 

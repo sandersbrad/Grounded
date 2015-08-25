@@ -10,10 +10,10 @@
 #  state         :string           not null
 #  zip           :string           not null
 #  description   :text
-#  num_beds      :integer          not null
-#  num_baths     :integer          not null
-#  price         :integer          not null
-#  property_type :string           not null
+#  num_beds      :integer
+#  num_baths     :integer
+#  price         :integer
+#  property_type :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  latitude      :float
