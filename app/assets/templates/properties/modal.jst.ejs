@@ -46,7 +46,7 @@
     <h5>Property Type: <%=property.escape('property_type')%></h5>
     <h5>Area: <%=property.escape('area')%></h5>
     <h5>Zestimate: <%=property.escape('zestimate')%></h5>
-    <% if (parseInt(Grounded.CURRENT_USER.id) === property.get('user_id')) { %>
+    <% if (Grounded.CURRENT_USER && (parseInt(Grounded.CURRENT_USER.id) === property.get('user_id'))) { %>
       <button class='upload_image'>Upload Image</button>
     <% } %>
   </div>
