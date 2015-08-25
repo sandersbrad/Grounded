@@ -8,13 +8,15 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.current_user_follow(), 'change', this.render);
     this.listenTo(this.model.current_user_invested(), 'change', this.render);
+    this.listenTo(this.model.images(), 'add', this.render);
   },
 
   events: {
     'click .close' : 'remove',
     'click .toggle_follow': 'toggleFollow',
     'click .toggle_invest': 'showInvestForm',
-    'submit form': 'investProperty'
+    'submit form': 'investProperty',
+    'click .upload_image' : 'uploadImage'
   },
 
   render: function () {
@@ -33,7 +35,7 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
 
   addDefaultImage: function () {
     if (this.model.images().length > 0) {
-      this.$('.default-image').html('<img src=' + this.model.images()[0].get('image_url') + ' height=300 width=250>');
+      this.$('.default-image').html('<img src=' + this.model.images().toArray()[0].get('image_url') + ' height=300 width=250>');
     }
   },
 
@@ -100,6 +102,31 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
       }.bind(this)
     });
     this.model.current_user_follow().clear();
+  },
+
+  uploadImage: function () {
+    var cloud_name = Grounded.cloud_name;
+    var upload_preset = Grounded.upload_preset;
+
+    that = this
+    cloudinary.openUploadWidget({ upload_preset: upload_preset,
+                                 cloud_name: cloud_name },
+                                 function(error, result) {
+                                   var thumb_url = result[0].thumbnail_url;
+                                   var image_url = result[0].url;
+                                   var property_id = this.model.id;
+                                   var image = new Grounded.Models.Image ({
+                                     image_url: image_url,
+                                     thumb_url: thumb_url,
+                                     property_id: property_id
+                                   });
+
+                                   image.save({},{
+                                     success: function () {
+                                       that.model.images().add(image);
+                                     }
+                                   });
+                                 }.bind(this));
   },
 
 });

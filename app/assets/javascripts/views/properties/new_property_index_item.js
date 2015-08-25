@@ -5,7 +5,8 @@ Grounded.Views.NewPropertyIndexItem = Backbone.View.extend({
   className: 'property_index_item container-fluid',
 
   events: {
-    'submit form' : 'addProperty'
+    'submit form' : 'addProperty',
+    'click h5' : 'showForm'
   },
 
   initialize: function () {
@@ -24,11 +25,16 @@ Grounded.Views.NewPropertyIndexItem = Backbone.View.extend({
     this.model.save(formData, {
       success: function () {
         this.collection.add(this.model);
+        $('.new_prop_index_item').removeClass('show');
       }.bind(this),
       error: function (model, response, other) {
         console.log(response);
       }
     });
+  },
+
+  showForm: function () {
+    $('.new_prop_index_item').addClass('show');
   }
 
 });

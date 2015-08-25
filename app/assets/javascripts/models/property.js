@@ -13,9 +13,7 @@ Grounded.Models.Property = Backbone.Model.extend({
     }
     // Makes an array of property images for use in carousel
     if (response.images) {
-      response.images.forEach(function (image) {
-        this.images().push(new Grounded.Models.Image(image));
-      }.bind(this));
+      this.images().set(response.images);
     }
     //Makes an investment collection from properties api
     if (response.investments) {
@@ -27,7 +25,7 @@ Grounded.Models.Property = Backbone.Model.extend({
 
   images: function () {
     if (!this._images) {
-      this._images = [];
+      this._images = new Grounded.Collections.Images([], { property: this });
     }
     return this._images;
   },

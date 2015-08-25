@@ -19,6 +19,10 @@ class Api::PropertiesController < ApplicationController
   def create
     @property = Property.new(prop_params)
 
+    if current_user
+      @property.user_id = current_user.id
+    end
+
     if @property.save
       render json: @property
     else
@@ -29,6 +33,6 @@ class Api::PropertiesController < ApplicationController
   private
 
   def prop_params
-    params.require(:property).permit(:street_number, :street, :city, :state, :zip, :unit)
+    params.require(:property).permit(:street_number, :street, :city, :state, :zip, :unit, :initial)
   end
 end

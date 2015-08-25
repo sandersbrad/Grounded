@@ -3,7 +3,7 @@
     <div class='col-md-4' style=' overflow: hidden; content: center'>
       <div class='thumb'>
           <% if (property.images().length > 0) {%>
-            <img src='<%= property.images()[0].escape('thumb_url') %>' height=90>
+            <img src='<%= property.images().toArray()[0].escape('thumb_url') %>' height=90>
           <% } else {%>
             <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1439765104/no_image_na31i5.png" height=90>
           <% } %>
@@ -43,12 +43,18 @@
     <div class='col-md-12'>
 
       <div class="progress">
-        <div class="progress-bar progress-bar-info" style="width: <%= property.investments().total_confirmed() %>%">
-          <span class="sr-only"><%= property.investments().total_confirmed() %>%</span>
-        </div>
-        <div class="progress-bar progress-bar-success" style="width: <%= property.investments().total_pending() %>%">
-          <span class="sr-only"><%= property.investments().total_pending() %></span>
-        </div>
+        <% if (property.get('initial')) {%>
+          <div class="progress-bar progress-bar-warning" style="width: 100%">
+            <span class="sr-only">Pending</span>
+          </div>
+        <%} else {%>
+          <div class="progress-bar progress-bar-info" style="width: <%= property.investments().total_confirmed() %>%">
+            <span class="sr-only"><%= property.investments().total_confirmed() %>%</span>
+          </div>
+          <div class="progress-bar progress-bar-success" style="width: <%= property.investments().total_pending() %>%">
+            <span class="sr-only"><%= property.investments().total_pending() %></span>
+          </div>
+        <% } %>
       </div>
 
 

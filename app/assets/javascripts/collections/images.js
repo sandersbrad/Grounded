@@ -2,7 +2,7 @@ Grounded.Collections.Images = Backbone.Collection.extend({
 
   url: 'api/properties',
 
-  model: Grounded.Models.Property,
+  model: Grounded.Models.Image,
 
   getOrFetch: function (id) {
     var model = this.get(id);

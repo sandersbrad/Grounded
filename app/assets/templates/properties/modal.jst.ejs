@@ -1,9 +1,12 @@
+<div class='modal-buttons'>
 <button type="button" class="close" data-dismiss="modal"
                                     aria-label="Close">
     <span aria-hidden="true">&times;</span>
 </button>
-<div class='modal-buttons'>
   <div class='prop-modal-btns'>
+    <% if (property.get('initial')) { %>
+      <button class="initial_investment">Pending Initial Investment</button>
+    <% } %>
     <% if (Grounded.CURRENT_USER) { %>
       <% if (!property.isInvested()) {%>
         <button class="toggle_follow">
@@ -15,22 +18,45 @@
         </button>
       <% } %>
 
-      <% if (!property.isInvested()) { %>
-        <button class="toggle_invest">
-          Invest in this Property
-        </button>
-      <% } else { %>
-        <div class='investment_pending'>
-          Investment Pending
-        </div>
+      <% if (!property.get('initial')) { %>
+        <% if (!property.isInvested()) { %>
+          <button class="toggle_invest">
+            Invest in this Property
+          </button>
+        <% } else { %>
+          <div class='investment_pending'>
+            Investment Pending
+          </div>
+        <% } %>
       <% } %>
     <% } %>
   </div>
   <div class='modal-invest-form'></div>
 </div>
 
-
-<div class='default-image' style="height: 300px; width: 250px">
-  <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1439765104/no_image_na31i5.png" height=300 width=250>
+<div class='row'>
+  <div class='col-md-5'>
+    <div class='default-image' style="height: 300px; width: 250px">
+      <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1440478336/No_image_ovdc02.png" height=300 width=300>
+    </div>
+  </div>
+  <div class='col-md-7'>
+    <h3><%=property.escape('street_number')%> <%=property.escape('street')%></h3>
+    <h5><%=property.escape('city')%>, <%=property.escape('state')%>  <%=property.escape('zip')%><br>
+    <h5>Property Type: <%=property.escape('property_type')%></h5>
+    <h5>Area: <%=property.escape('area')%></h5>
+    <h5>Zestimate: <%=property.escape('zestimate')%></h5>
+    <% if (parseInt(Grounded.CURRENT_USER.id) === property.get('user_id')) { %>
+      <button class='upload_image'>Upload Image</button>
+    <% } %>
+  </div>
 </div>
-<div class='zillow-chart'></div>
+
+<div class='row'>
+  <div class='col-md-3'>
+  </div>
+  <div class='col-md-9'>
+    <h4 style='float: right; padding: 0 4%; margin-bottom: 0;'> Zillow Zestimates Over the Last Year </h4>
+    <div class='zillow-chart'></div>
+  </div>
+</div>
