@@ -114,7 +114,7 @@ img.brand {
 .modal-body {
   position: relative;
   padding: 15px;
-  color: #000689;
+  color: #000652;
   background: rgba(248, 248, 248, 0.59);
   border-radius: 5px
 }
@@ -133,14 +133,14 @@ img.brand {
 
 .btn-default.blue {
   color: #FFF;
-  background-color: #000689;
-  border-color: #000689;
+  background-color: #000652;
+  border-color: #000652;
 }
 
 .modal-body {
     position: relative;
     padding: 15px;
-    color: #000689;
+    color: #000652;
 }
 
 img.nav-logo {
@@ -352,7 +352,7 @@ div #myCarousel {
   padding: 8px;
   border-radius: 4px;
   background: #ffffff;
-  border: 1px solid #000689
+  border: 1px solid #000652
 }
 
 .progress {
@@ -385,7 +385,7 @@ div.index-item-box:hover {
 }
 
 button.toggle_follow {
-  border: 4px solid #000689;
+  border: 4px solid #000652;
   background: none;
   font-size: 16px;
   padding: 6px 20px;
@@ -403,12 +403,13 @@ button.initial_investment {
 }
 
 h5.add_new_property {
-  margin: 0;
+  padding-left: 5px;
   font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 0px;
 }
 
 h5.add_new_property:hover {
-  margin: 0;
   font-weight: 700;
   cursor: pointer;
 }
@@ -432,7 +433,7 @@ div.default-image {
 }
 
 button.toggle_invest {
-  border: 4px solid #000689;
+  border: 4px solid #000652;
   background: none;
   font-size: 16px;
   padding: 6px 20px;
@@ -499,6 +500,10 @@ p#street_address {
   margin: 0;
 }
 
+span.hide {
+  display:none;
+}
+
 p#city_state_zip {
   color: rgb(0, 6, 82);
 }
@@ -513,10 +518,35 @@ span.glyphicon.glyphicon-plus {
   padding-right: 5px;
 }
 
-h5.add_new_property {
-  padding-left: 5px;
+span.glyphicon.glyphicon-minus {
+  float: right;
+  padding-right: 5px;
 }
+
 
 div.add_new {
   color: #000652
+}
+
+input.addProperty {
+  border: 4px solid #000652;
+  background: none;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px 16px;
+  color: #000652;
+  float: right;
+}
+
+.new_prop_index_item.form-horizontal {
+  margin-top: 10px;
+}
+
+div.index-item-box.form {
+  margin-bottom: 5px;
+  padding-bottom: 3px;
+}
+
+label.control-label {
+  color: #000652;
 }

@@ -34,7 +34,9 @@ Grounded.Views.NewPropertyIndexItem = Backbone.View.extend({
   },
 
   showForm: function () {
-    $('.new_prop_index_item').addClass('show');
+    $('.new_prop_index_item').toggleClass('show');
+    $('.glyphicon.glyphicon-plus').toggleClass('hide');
+    $('.glyphicon.glyphicon-minus').toggleClass('hide');
   }
 
 });
