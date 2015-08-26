@@ -15,5 +15,10 @@ json.array! @properties do |property|
     end
   end
 
+  json.zestimate property.response["zestimate"]["amount"]["__content__"]
+  json.zindexvalue property.response["localRealEstate"]["region"]["zindexValue"]
+  json.area property.response["localRealEstate"]["region"]["name"]
+  json.areatype property.response["localRealEstate"]["region"]["type"]
+
   json.investments property.investments
 end

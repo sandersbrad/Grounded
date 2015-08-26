@@ -8,10 +8,6 @@
             <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1439765104/no_image_na31i5.png" height=90>
           <% } %>
       </div>
-
-      <div class="property_price">
-      <p><b> $<%= property.escape('price') %> </b></p>
-      </div>
     </div>
 
 
@@ -26,14 +22,14 @@
       </div>
 
       <div class="property_details">
-        <p id="description">
-          <%= property.escape('description') %>
+        <p id="zestimate">
+          Zestimate: <%= property.escape('zestimate') %>
         </p>
-        <p>
-          <%= "Beds: " + property.escape('num_beds') + " Baths: " + property.escape('num_baths') %>
+        <p id="z-index">
+          Zillow Z-index: <%= property.escape('zindexvalue') %>
         </p>
-        <p>
-          <%= property.escape('property_type') %>
+        <p id='area'>
+          <%= property.escape('area') %> (<%= property.escape('areatype') %>)
         </p>
       </div>
     </div>
