@@ -5,8 +5,8 @@
 
     <div class='splash'>
       <div class='splash-inner'>
-        <%= link_to "Find a Home", '/#listings', :class => 'btn btn-default btn-lg splash' %>
-        <%= link_to "Why Grounded?", '/#slider', :class => 'btn btn-default btn-lg splash' %>
+        <!-- <%= link_to "Find a Home", '/#listings', :class => 'btn btn-default btn-lg splash' %>
+        <%= link_to "Why Grounded?", '/#slider', :class => 'btn btn-default btn-lg splash' %> -->
         <%= link_to "Invest in Properties", '/home', :class => 'btn btn-default btn-lg splash' %>
         <br>
         <button type="button" class="btn btn-primary btn-lg splash"
@@ -19,6 +19,15 @@
                               data-target="#SignUp">
           Sign Up
         </button>
+        <form action='<%=session_url%>' method='post'>
+          <%= auth_token_input %>
+          <input type='hidden' name='user[email]'
+                               value='guest@grounded.com'>
+          <input type='hidden' name='user[password]'
+                               value='password'>
+          <input type='submit' class='btn btn-primary btn-lg splash'
+                               value='Guest Log In'>
+        </form>
       </div>
     </div>
   </div>

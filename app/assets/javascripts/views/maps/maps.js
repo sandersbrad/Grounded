@@ -51,23 +51,24 @@ Grounded.Views.Map = Backbone.View.extend({
     });
 
     google.maps.event.addListener(marker, 'click', function (event) {
-      view.showMarkerInfo(event, marker);
+      view.showMarkerInfo(event, marker, property);
     });
 
     this._markers[property.id] = marker;
   },
 
-  showMarkerInfo: function (event, marker) {
+  showMarkerInfo: function (event, marker, property) {
   // This event will be triggered when a marker is clicked. Right now it
   // simply opens an info window with the title of the marker. However, you
   // could get fancier if you wanted (maybe use a template for the content of
   // the window?)
+    $('#' + property.id).animatescroll({element:'#properties'});
 
-  var infoWindow = new google.maps.InfoWindow({
-    content: marker.title
-  });
+    var infoWindow = new google.maps.InfoWindow({
+      content: marker.title
+    });
 
-  infoWindow.open(this._map, marker);
+    infoWindow.open(this._map, marker);
 }
 
 });

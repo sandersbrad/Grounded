@@ -2,15 +2,30 @@
   <img class="nav-logo" alt="Grounded" src='http://res.cloudinary.com/dwhvrflyu/image/upload/v1439775160/grounded_logo_blue_umdzai.png'>
 </a>
 
-<a href="#slider" class='sidebar-nav'> Why Grounded? </a><br>
-<a href="javascript:void(0)" class='sidebar-nav' id='addNewProperty'> Tell Us About a Listing </a>
+<!-- <a href="#slider" class='sidebar-nav'> Why Grounded? </a><br>
+<a href="javascript:void(0)" class='sidebar-nav' id='addNewProperty'> Tell Us About a Listing </a> -->
 
 <% if (Grounded.CURRENT_USER) { %>
-  <div class="invested">
-  Invested Properties<br>
+  <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+    <span class='invest_menu'>Invested</span>
+      <div class="invested">
+      </div
   </div>
-  <div class="followed">
-  Followed Properties<br>
+  <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+    <span class='follow_menu'>Following</span>
+      <div class="followed">
+      </div>
   </div>
   <br>
 <% } %>
+
+<script>
+  $('.invest_menu').click(function () {
+    $('div.invested').toggleClass('show')
+    $('.invest_menu').toggleClass('show')
+  })
+  $('.follow_menu').click(function () {
+    $('div.followed').toggleClass('show')
+    $('.follow_menu').toggleClass('show')
+  })
+</script>

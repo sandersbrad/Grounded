@@ -6,9 +6,10 @@ Grounded.Views.Sidebar = Backbone.View.extend({
     this.listenTo(Grounded.investedCollection, 'change sync', this.render);
   },
 
-  events: {
-    'click #addNewProperty' : 'newForm'
-  },
+  // events: {
+  //   'click .invest_menu' : 'showInvested',
+  //   'click .open' : 'hideInvested'
+  // },
 
   render: function () {
     this.$el.html(this.template());
@@ -23,9 +24,23 @@ Grounded.Views.Sidebar = Backbone.View.extend({
 
     return this;
   },
-
-  newForm: function () {
-    Grounded.EventBus.trigger('newForm');
-  }
-
+  //
+  // showInvested: function () {
+  //   this.$('div.invested').addClass('show');
+  //   this.$('.invest_menu').addClass('open');
+  // },
+  //
+  // hideInvested: function () {
+  //   this.$('div.invested').removeClass('show');
+  //   this.$('span.invest_menu').removeClass('open');
+  // }
 });
+
+// <script>
+//   $('.invest_menu').click(function () {
+//   })
+// </script>
+// <script>
+//   $('span.invest_menu.open').click(function () {
+//   })
+// </script>

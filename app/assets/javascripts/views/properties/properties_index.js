@@ -44,7 +44,7 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
 
   showModal: function (event) {
     this.removeModal();
-    var propId = $(event.currentTarget).attr('data');
+    var propId = $(event.currentTarget).attr('id');
     var model = this.collection.getOrFetch(propId);
     var subview = new Grounded.Views.PropertyModal({ model: model });
     this.addSubview('.properties-modal', subview);

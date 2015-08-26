@@ -22,6 +22,17 @@ div.splash {
   text-align: center;
 }
 
+.navbar-nav {
+  float: none;
+  margin: 0 auto;
+  display: table;
+}
+
+.navbar-nav > li {
+  float: none;
+  display: inline-block;
+}
+
 a.sidebar-nav {
   color: #777;
   display: table;
@@ -148,6 +159,7 @@ img.nav-logo {
   background: #F8F8F8;
   height: 100vh;
   padding-right: 0;
+  padding-left: 0;
   padding-top: 110px;
   position: fixed;
   z-index: 20;
@@ -167,6 +179,24 @@ div#sidebar.container {
 .follow-invested-item.panel {
   margin: auto;
   margin-top: 20px;
+}
+
+div.invested {
+  display: none;
+}
+
+div.invested.show {
+  display: block;
+  bottom: 0;
+}
+
+div.followed {
+  display: none;
+}
+
+div.followed.show {
+  display: block;
+  bottom: 0;
 }
 
 .new-form {
@@ -196,17 +226,13 @@ div .sign-out {
 }
 
 .panel-heading {
-    /* padding: 10px 15px; */
-    border-bottom: 1px solid transparent;
-    border-radius-top-right: 3px;
-    border-radius-top-left: 3px;
-    background: #337AB7;
-    text-align: center;
-}
-
-.panel-body {
-  background: #ffffff;
-
+  padding: 0 6px;
+  border-bottom: 1px solid transparent;
+  border-radius-top-right: 3px;
+  border-radius-top-left: 3px;
+  background: #F8F8F8;
+  color: #000652;
+  text-align: center;
 }
 
 .splash-center {
@@ -254,7 +280,52 @@ div .sign-out {
 h5#street_address {
   margin-top: 5px;
   margin-bottom: 5px;
-  font-weight: 400;
+  font-weight: 600;
+}
+
+h5#city_state_zip {
+  font-size: 11px;
+  margin: 0;
+}
+
+span.invest_menu {
+  display: inline-table;
+  height: 22px;
+  width: 50%;
+  color: #F8F8F8;
+  font-weight: bold;
+  background: #000652;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
+}
+
+span.invest_menu.show {
+  position:relative;
+}
+
+span.follow_menu.show {
+  position:relative;
+  float: right;
+}
+
+span.follow_menu {
+  display: inline-table;
+  height: 22px;
+  width: 50%;
+  color: #F8F8F8;
+  font-weight: bold;
+  background: #000652;
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
 }
 
 div #myCarousel {
@@ -269,7 +340,10 @@ div #myCarousel {
 }
 
 .panel-body {
+  padding: 8px;
   border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #000689
 }
 
 .progress {

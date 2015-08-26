@@ -18,9 +18,10 @@ Property.create!([
   # {street_number: "2323", unit: nil, street: "Lake St", city: "San Francisco", state: "CA", zip: "94121", description: nil, num_beds: 4, num_baths: 3, price: 4900000, property_type: "House"}
 ])
 User.create!([
-  {email: "fayekeegan@gmail.com", password: "dubmass", admin: nil},
   {email: "sandersbrad@gmail.com", password: "dummypass", admin: nil},
-  {email: "chobbs47@gmail.com", password: "password", admin: nil}
+  {email: "fayekeegan@gmail.com", password: "dubmass", admin: nil},
+  {email: "chobbs47@gmail.com", password: "password", admin: nil},
+  {email: "guest@grounded.com", password: "password", admin: nil}
 ])
 Investment.create([
   {user_id: 1, property_id: 1, pending: false, percentage: 4, initial: true},
