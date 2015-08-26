@@ -47,22 +47,28 @@ class Property < ActiveRecord::Base
     response["chart"]["response"]["url"]
   end
 
-  def zillow_info
-    return HTTParty.get('http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + self.zpid)
-  end
+  # def zillow_info
+  #   return HTTParty.get('http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + self.zpid)
+  # end
 
   def needs_geocode?
     self.latitude.nil? || self.longitude.nil?
   end
 
+  def needs_address?
+    self.zpid.nil?
+  end
 
   def fill_in_address
-    @response = HTTParty.get('https://www.zillow.com/webservice/GetDeepSearchResults.htm?' + URI.encode(zillow_query)).parsed_response["searchresults"]["response"]["results"]["result"]
-    self.zpid ||= @response["zpid"]
-    self.city ||= @response["address"]["city"]
-    self.state ||= @response["address"]["state"]
-    self.zip ||= @response["address"]["zipcode"]
-    save
+    if needs_address?
+      @response = HTTParty.get('https://www.zillow.com/webservice/GetDeepSearchResults.htm?' + URI.encode(zillow_query)).parsed_response["searchresults"]["response"]["results"]["result"]
+      self.zpid ||= @response["zpid"]
+      self.city ||= @response["address"]["city"]
+      self.state ||= @response["address"]["state"]
+      self.zip ||= @response["address"]["zipcode"]
+      # Just store shit like zestimate, chart, zindex, for demo purposes!!!!
+      save
+    end
     @response
   end
 
