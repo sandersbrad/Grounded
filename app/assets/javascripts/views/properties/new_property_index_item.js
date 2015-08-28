@@ -25,8 +25,8 @@ Grounded.Views.NewPropertyIndexItem = Backbone.View.extend({
     this.model.save(formData, {
       success: function () {
         this.collection.add(this.model);
-        this.$('.errors').empty();
         this.showForm();
+        bootbox.alert("Thanks for submitting a new property.  A representative will contact you within 48 hours to finalize your initial investment.  In the meantime, we'll add your property to our index and start attracting co-owners!");
       }.bind(this),
       error: function (model, response, other) {
         if (response.status === 500) {
@@ -39,9 +39,10 @@ Grounded.Views.NewPropertyIndexItem = Backbone.View.extend({
   },
 
   showForm: function () {
-    $('.new_prop_index_item').toggleClass('show');
-    $('.glyphicon.glyphicon-plus').toggleClass('hide');
-    $('.glyphicon.glyphicon-minus').toggleClass('hide');
+    this.$('.new_prop_index_item').toggleClass('show');
+    this.$('.glyphicon.glyphicon-plus').toggleClass('hide');
+    this.$('.glyphicon.glyphicon-minus').toggleClass('hide');
+    this.$('.errors').empty();
   }
 
 });

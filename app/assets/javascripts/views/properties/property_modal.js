@@ -69,13 +69,13 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
         Grounded.investedCollection.add(this.model);
         that.model.investments().add(investment);
         that.investFormView.remove();
+        bootbox.alert("Great!  A representative will contact you within 24 hours to finalize your investment.");
       }
     });
     if (this.model.current_user_follow()) {
       this.unfollowProperty();
     }
 
-    bootbox.alert("Investment registered.  A representative will contact you in 24 hours.");
 
   },
 

@@ -4,15 +4,14 @@
 
 <!-- <a href="#slider" class='sidebar-nav'> Why Grounded? </a><br>
 <a href="javascript:void(0)" class='sidebar-nav' id='addNewProperty'> Tell Us About a Listing </a> -->
+<div class="spacer" style='height: 13px;'></div>
 
 <% if (Grounded.CURRENT_USER) { %>
   <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
     <span class='invest_menu'>Invested</span>
-    <div class="invested">
-    </div>
-  </div>
-  <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
     <span class='follow_menu'>Following</span><br>
+    <div class="invested show">
+    </div>
     <div class="followed">
     </div>
   </div>
@@ -21,10 +20,14 @@
 <script>
   $('.invest_menu').click(function () {
     $('div.invested').toggleClass('show')
+    $('div.followed').toggleClass('show')
     $('.invest_menu').toggleClass('show')
+    $('.follow_menu').toggleClass('show')
   })
   $('.follow_menu').click(function () {
-    $('div.followed').toggleClass('show')
     $('.follow_menu').toggleClass('show')
+    $('.invest_menu').toggleClass('show')
+    $('div.followed').toggleClass('show')
+    $('div.invested').toggleClass('show')
   })
 </script>
