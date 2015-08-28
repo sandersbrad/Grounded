@@ -115,6 +115,9 @@
          "id": "<%= current_user.id %>"
        }
     <% end %>
+    <% if admin? %>
+      Grounded.ADMIN = {}
+    <% end %>
 
     Grounded.initialize();
   });

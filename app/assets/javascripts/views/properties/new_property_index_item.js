@@ -25,10 +25,15 @@ Grounded.Views.NewPropertyIndexItem = Backbone.View.extend({
     this.model.save(formData, {
       success: function () {
         this.collection.add(this.model);
-        $('.new_prop_index_item').removeClass('show');
+        this.$('.errors').empty();
+        this.showForm();
       }.bind(this),
       error: function (model, response, other) {
-        console.log(response);
+        if (response.status === 500) {
+          this.$('.errors').html("Invalid Address / No Zillow Data");
+        } else {
+          this.$('.errors').html(response.responseText.replace('["',"").replace('"]',""));
+        }
       }
     });
   },

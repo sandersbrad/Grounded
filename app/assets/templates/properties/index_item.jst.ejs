@@ -23,10 +23,14 @@
 
       <div class="property_details">
         <p id="zestimate">
-          Zestimate: <%= property.escape('zestimate') %>
+          Zestimate: $<%= parseInt(property.escape('zestimate')).formatMoney(0) %>
         </p>
         <p id="z-index">
-          Zillow Z-index: <%= property.escape('zindexvalue') %>
+          <% if (property.escape('zindexvalue')) {%>
+            Zillow Z-index: $<%= property.escape('zindexvalue') %>
+          <% } else { %>
+            Zillow Z-index: Not Available
+          <% } %>
         </p>
         <p id='area'>
           <%= property.escape('area') %> (<%= property.escape('areatype') %>)

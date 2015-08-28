@@ -22,6 +22,36 @@ div.splash {
   text-align: center;
 }
 
+div.errors {
+  text-align: center;
+  color: #000652;
+}
+
+div.zillow-chart {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+}
+
+.row.modal-details {
+  margin-top: 30px;
+}
+
+h5.modal-details {
+  margin: 2px;
+}
+
+h3#street-address {
+  font-weight: bold;
+  color: #000652;
+  margin-bottom: 0px;
+}
+
+h5#city-state-zip {
+  margin: 0;
+  color: #000652;
+}
+
 .navbar-nav {
   float: none;
   margin: 0 auto;

@@ -27,7 +27,7 @@ class Property < ActiveRecord::Base
   require 'uri'
 
   validates :street_number, :street, :city, :state, presence: true
-  validates_uniqueness_of :street_number, scope: [:unit, :street, :city, :state]
+  validates_uniqueness_of :street_number, scope: :street
 
   has_many :follows
   has_many :investments
@@ -47,10 +47,6 @@ class Property < ActiveRecord::Base
     response["chart"]["response"]["url"]
   end
 
-  # def zillow_info
-  #   return HTTParty.get('http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=' + ENV['ZILLOW_ZWS_ID'] + '&zpid=' + self.zpid)
-  # end
-
   def needs_geocode?
     self.latitude.nil? || self.longitude.nil?
   end
@@ -66,7 +62,11 @@ class Property < ActiveRecord::Base
       self.city ||= @response["address"]["city"]
       self.state ||= @response["address"]["state"]
       self.zip ||= @response["address"]["zipcode"]
-      # Just store shit like zestimate, chart, zindex, for demo purposes!!!!
+      self.zestimate ||= @response["zestimate"]["amount"]["__content__"]
+      self.zindexvalue ||= @response["localRealEstate"]["region"]["zindexValue"]
+      self.area ||= @response["localRealEstate"]["region"]["name"]
+      self.areatype ||= @response["localRealEstate"]["region"]["type"]
+      self.property_type ||= @response["useCode"]
       save
     end
     @response
