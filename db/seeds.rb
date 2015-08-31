@@ -19,14 +19,13 @@ Property.create!([
 ])
 User.create!([
   {email: "fayekeegan@gmail.com", password: "dubmass", admin: nil},
-  {email: "chobbs47@gmail.com", password: "password", admin: nil},
   {email: "guest@grounded.com", password: "password", admin: nil},
+  {email: "chobbs47@gmail.com", password: "password", admin: nil},
   {email: "sandersbrad@gmail.com", password: "dummypass", admin: 1}
 ])
 Investment.create([
   {user_id: 1, property_id: 1, pending: false, percentage: 4, initial: true},
   {user_id: 2, property_id: 1, pending: true,  percentage: 12},
-  {user_id: 3, property_id: 1, pending: true,  percentage: 15},
   {user_id: 3, property_id: 2, pending: false, percentage: 7, initial: true},
   {user_id: 1, property_id: 2, pending: true,  percentage: 3},
   {user_id: 2, property_id: 2, pending: true,  percentage: 15},
