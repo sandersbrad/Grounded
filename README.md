@@ -14,27 +14,14 @@ Grounded is a webapp that allows users to invest in real estate together. Users 
 
 - [x] Create accounts
 - [x] Create sessions (log in)
-- [ ] Browse a marketplace
-- [ ] Use zillow generated charts to research potential properties
+- [x] Browse a marketplace
+- [x] Use zillow generated charts to research potential properties
 - [x] Invest in properties
 - [x] Follow properties
-- [ ] Send inquiries
-- [ ] Search for properties by location
-- [ ] Search for properties by price
+- [x] Add new properties to the marketplace
+- [x] View properties on a map
 
 
-##Where I left off
-
-Passing the current user e-mail and id to backbone
-Making it possible to follow properties
-
-##To-dos
-A list of quick implementations if time is permitting
-
-- [ ] Validate email with regex
-- [ ] Validate US address
-- [ ] Add units to address if needed (propertylistitem, propertyshow)
-- [ ] Change custom routes to properties#show, parse results into separate collections
 
 
 ## Design Docs
@@ -57,42 +44,30 @@ to phase 2.
 ### Phase 2: Viewing Properties (~2 days)
 I will add API routes to serve property data as JSON, then add Backbone
 models and collections that fetch data from those routes. By the end of this
-phase, users will be able to view all properties andfollow properties they are interested in.  Allow users (signed in or not) to see how much more investment is needed for each property (status bar).
+phase, users will be able to view all properties and follow properties they are interested in.  Allow users (signed in or not) to see how much more investment is needed for each property (status bar).
 
-Allow users who have invested (or are interested?) in a property see what other users have invested as well?  Not totally confident I want this feature, but its good to keep it in the front of my mind.  Also, I think this data should be stored whether or not it is rendered on the page for admin purposes.
+Allow users who have invested (or are interested?) in a property see maintain those properties in a list and follow future investments.
 
 Also implement a form for users to post properties they are interested in investing in through Grounded.  
 
 [Details][phase-two]
 
-### Phase 3: User Qualification and Education (~2 days)
-In this phase I will create an interactive page for users to toy around with figures and see what, if at all, they are qualified to invest.  I'll use third party libraries (ie D3) to graphically display results so they are easily readable to the user.  This section will also contain a short degree of questioning to determine qualification.  I'll also use this opportunity to add any risk evaluation content that is needed in this stage.
+### Phase 3: Investment Research (~2 days)
+In this phase I will use Zillow's API to generate statistical data about all properties in the marketplace.
 
 [Details][phase-three]
 
 ### Phase 4: User Homescreen (~1-2 days)
-I'll customize a logged-in user's page by displaying any properties they are watching in a sidebar.  I'll also have links to their user data (ie, qualifactions) and any other data that is relevant to a particular user.  
+I'll customize a logged-in user's page by displaying any properties they are watching in a sidebar.  
 
 [Details][phase-four]
 
-### Phase 5: Searching for Properties and more Graphical Analyses (~2 days)
-Allow users to search properties by location and price and also filter results.  Add more graphical data to show investment returns over time for a user.
+### Phase 5: Map (~1 day)
+I'll use Google's API to add a map feature to the properties marketplace.  User's will be able to see the location of properties in San Francisco, as well as add new properties to the map.
 
 
 [Details][phase-five]
 
-### Bonus Features (TBD)
-- [ ] Pop-up pages for user log-in and sign-up
-- [ ] E-mail verification for new users
-- [ ] Evaluate risks page
-- [ ] Text message alerts
-- [ ] Responsive Design
-- [ ] Make listings shareable (facebook, email, etc)
-- [ ] Log in with facebook
-- [ ] Instant render search bar
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Create a backend framework for admins to add/edit properties
 
 [screenshot1]: ./app/assets/images/readme/grounded.png
 [screenshot2]: ./app/assets/images/readme/grounded2.png
