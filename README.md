@@ -4,6 +4,9 @@
 
 [heroku]
 
+![screenshot1]
+![screenshot2]
+
 ## Minimum Viable Product
 Grounded is a webapp that allows users to invest in real estate together. Users can:
 
@@ -90,6 +93,9 @@ Allow users to search properties by location and price and also filter results. 
 - [ ] Multiple sessions/session management
 - [ ] User avatars
 - [ ] Create a backend framework for admins to add/edit properties
+
+[screenshot1]: ./app/assets/images/readme/grounded.png
+[screenshot2]: ./app/assets/images/readme/grounded2.png
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
