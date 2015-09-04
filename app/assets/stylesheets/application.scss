@@ -29,7 +29,8 @@ div.errors {
 
 div.zillow-chart {
   width: 100%;
-  display: flex;
+  display: block;
+  float: right;
   padding: 5px;
 }
 
@@ -231,6 +232,7 @@ div.followed.show {
   overflow-y: scroll;
   overflow-x: hidden;
   bottom: 0;
+  width: 100%;
 }
 
 .new-form {
@@ -571,13 +573,14 @@ div.add_new {
 }
 
 input.addProperty {
-  border: 4px solid #000652;
-  background: none;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 5px 16px;
-  color: #000652;
-  float: right;
+    border: 4px solid #000652;
+    background: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 16px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    color: #000652;
 }
 
 .new_prop_index_item.form-horizontal {
