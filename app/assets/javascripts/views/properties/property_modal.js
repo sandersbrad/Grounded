@@ -75,8 +75,6 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
     if (this.model.current_user_follow()) {
       this.unfollowProperty();
     }
-
-
   },
 
   followProperty: function() {

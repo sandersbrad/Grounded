@@ -21,6 +21,7 @@ gem 'figaro'
 gem 'seed_dump'
 gem 'roo'
 gem 'httparty'
+gem 'introjs-rails'
 
 
 

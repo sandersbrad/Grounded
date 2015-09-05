@@ -20,7 +20,7 @@
       <div class='col-md-4'></div>
       <div class='col-md-4'>
         <ul class="nav navbar-nav">
-          <li><a href="#about">About<span class="sr-only">(current)</span></a></li>
+          <li><a href="javacript:void(0)" class="about" data-intro="test" data-step="3">About<span class="sr-only">(current)</span></a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#">Properties</a></li>
         </ul>
@@ -58,3 +58,13 @@
 
 <div class='col-md-2' id='side-bar'></div>
 <div class="container col-md-10" id='content'></div>
+
+<script>
+  $('.about').click(function () {
+    introJs().start().onafterchange(function(targetElement) {
+      if (targetElement.classList[0] === "about") {
+        $(".index-item-box").eq(1).click();
+      }
+    });
+  })
+</script>
