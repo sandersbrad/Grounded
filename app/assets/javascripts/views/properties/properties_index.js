@@ -31,7 +31,6 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
     var subview = new Grounded.Views.PropertiesIndexItem({ model: property });
     this.addSubview('.properties', subview);
     this._subviews[property.id] = subview;
-    $('.property_index_item').eq(1).attr('data-intro', "Click a property to see it's details").attr('data-step', "2")
   },
 
   addMapSubview: function () {

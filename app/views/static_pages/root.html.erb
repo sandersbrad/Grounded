@@ -61,11 +61,17 @@
 
 <script>
   $('.about').click(function () {
-    introJs().start().onbeforechange(function(targetElement) {
-      if (targetElement.classList[0] === "property_index_item") {
-        introJs().exit();
-        $(".index-item-box").eq(1).click();
-        introJs().goToStep(3).start().previousStep();
+    $(".index-item-box").eq(1).click();
+    $(".property-modal").addClass("no-display");
+    var tour = introJs().setOptions({steps: [
+      {element:".property_index_item", intro: "something about id1"},
+      {element:".prop-modal-btns", intro: "something about id2"},
+      {element:".property-modal", intro: "soomething about this"}
+    ]})
+    // $(".close").click();
+    tour.start().onbeforechange(function(targetElement) {
+      if (this._currentStep === 1) {
+        $(".property-modal").removeClass("no-display");
       }
     });
   })
