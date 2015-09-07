@@ -345,6 +345,19 @@ span.invest_menu {
   overflow: hidden;
 }
 
+.side-cont {
+  height: 100%;
+}
+
+.legend {
+  bottom: 0px;
+  /* z-index: 20; */
+  left: 0px;
+  width: 100%;
+  display: flex;
+  position: absolute;
+}
+
 span.invest_menu.show {
   background: #000652;
   color: #F8F8F8;

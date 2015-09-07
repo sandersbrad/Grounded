@@ -1,5 +1,6 @@
 Grounded.Views.Sidebar = Backbone.View.extend({
   template: JST['sidebar/side'],
+  className: 'side-cont',
 
   initialize: function () {
     this.listenTo(Grounded.followCollection, 'change sync', this.render);
