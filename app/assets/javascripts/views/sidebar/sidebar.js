@@ -3,16 +3,13 @@ Grounded.Views.Sidebar = Backbone.View.extend({
   className: 'side-cont',
 
   initialize: function () {
-    this.listenTo(Grounded.followCollection, 'change sync', this.render);
-    this.listenTo(Grounded.investedCollection, 'change sync', this.render);
+    // this.listenTo(Grounded.followCollection, 'change sync', this.render);
+    this.listenTo(Grounded.followCollection, 'add remove', this.clickFollow);
+    // this.listenTo(Grounded.investedCollection, 'change sync', this.render);
+    this.listenTo(Grounded.investedCollection, 'add remove', this.clickInvested);
   },
 
-  // events: {
-  //   'click .invest_menu' : 'showInvested',
-  //   'click .open' : 'hideInvested'
-  // },
-
-  render: function () {
+  render: function (event) {
     this.$el.html(this.template());
 
     if (Grounded.CURRENT_USER) {
@@ -25,23 +22,13 @@ Grounded.Views.Sidebar = Backbone.View.extend({
 
     return this;
   },
-  //
-  // showInvested: function () {
-  //   this.$('div.invested').addClass('show');
-  //   this.$('.invest_menu').addClass('open');
-  // },
-  //
-  // hideInvested: function () {
-  //   this.$('div.invested').removeClass('show');
-  //   this.$('span.invest_menu').removeClass('open');
-  // }
-});
 
-// <script>
-//   $('.invest_menu').click(function () {
-//   })
-// </script>
-// <script>
-//   $('span.invest_menu.open').click(function () {
-//   })
-// </script>
+  clickFollow: function () {
+    $('.follow_menu').click();
+  },
+
+  clickInvested: function () {
+    $('.invest_menu').click();
+  },
+
+});

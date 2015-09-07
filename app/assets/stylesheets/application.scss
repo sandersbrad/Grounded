@@ -329,13 +329,28 @@ h5#city_state_zip {
   margin: 0;
 }
 
-span.invest_menu {
+span.follow_menu {
   display: inline-table;
   height: 22px;
   width: 50%;
   color: #000652;
-  border: 1px solid #000652;
-  border-bottom: none;
+  font-weight: bold;
+  background: #000652;
+  color: #F8F8F8;
+  position:absolute;
+  // bottom: 0;
+  right: 0;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
+}
+span.invest_menu {
+  display: inline-table;
+  height: 22px;
+  width: 50%;
+  background: #000652;
+  color: #F8F8F8;
   font-weight: bold;
   position: absolute;
   // bottom: 0;
@@ -359,8 +374,10 @@ span.invest_menu {
 }
 
 span.invest_menu.show {
-  background: #000652;
-  color: #F8F8F8;
+  color: #000652;
+  background: none;
+  border: 1px solid #000652;
+  border-bottom: none;
 }
 
 span.invest_menu:hover {
@@ -374,30 +391,13 @@ span.follow_menu:hover {
 span.follow_menu.show {
   position:relative;
   float: right;
-  background: none;
   color: #000652;
+  background: none;
   border: 1px solid #000652;
   border-bottom: none;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   overflow: hidden;
 }
 
-span.follow_menu {
-  display: inline-table;
-  height: 22px;
-  width: 50%;
-  color: #F8F8F8;
-  font-weight: bold;
-  background: #000652;
-  position:absolute;
-  // bottom: 0;
-  right: 0;
-  text-align: center;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  overflow: hidden;
-}
 
 div #myCarousel {
   width: 20%;
