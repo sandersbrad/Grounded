@@ -30,9 +30,19 @@ class Api::PropertiesController < ApplicationController
     end
   end
 
+  def update
+    @property = Property.find(params[:id])
+
+    if @property.update_attributes(prop_params)
+      render json:  @property
+    else
+      render json: @peroperty.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def prop_params
-    params.require(:property).permit(:street_number, :street, :city, :state, :zip, :unit, :initial)
+    params.require(:property).permit(:street_number, :street, :city, :state, :zip, :unit, :initial, :description)
   end
 end

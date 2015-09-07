@@ -16,8 +16,10 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
     'click .close' : 'remove',
     'click .toggle_follow': 'toggleFollow',
     'click .toggle_invest': 'showInvestForm',
-    'submit form': 'investProperty',
-    'click .upload_image' : 'uploadImage'
+    'submit form.inv-form': 'investProperty',
+    'click .upload_image' : 'uploadImage',
+    'click .edit' : 'showDescriptionForm',
+    'submit form.description-form': 'describeProperty'
   },
 
   render: function () {
@@ -46,9 +48,15 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
 
 
   showInvestForm: function () {
-    this.investFormView && this.investFormView.remove();
+    this.investFormView && this.removeSubview('.modal-invest-form', this.investFormView);
     this.investFormView = new Grounded.Views.InvestForm({ model: this.model });
     this.addSubview('.modal-invest-form', this.investFormView);
+  },
+
+  showDescriptionForm: function () {
+    this.descriptionForm && this.removeSubview('.desc-form', this.descriptionForm);
+    this.descriptionForm = new Grounded.Views.DescriptionForm({ model: this.model });
+    this.addSubview('.desc-form', this.descriptionForm);
   },
 
   investProperty: function (event) {
@@ -84,6 +92,18 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
                                               Grounded.followCollection.add(this.model);
                                             }.bind(this),
                                           });
+  },
+
+  describeProperty: function (event) {
+    event.preventDefault();
+    var formData = $(event.currentTarget).serializeJSON();
+    var that = this
+    this.model.save(formData, {
+      success: function () {
+        that.removeSubview('.desc-form', that.descriptionForm);
+        that.render();
+      }
+    });
   },
 
   toggleFollow: function (event) {
