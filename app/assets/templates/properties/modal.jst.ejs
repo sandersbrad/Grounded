@@ -1,75 +1,77 @@
-<div class='col-md-3'></div>
-<div class='col-md-9'>
-  <div class='modal-buttons'>
-  <button type="button" class="close" data-dismiss="modal"
-                                      aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-  </button>
-    <div class='prop-modal-btns'>
-      <% if (property.get('initial')) { %>
-        <button class="initial_investment">Pending Initial Investment</button>
-      <% } %>
-      <% if (Grounded.CURRENT_USER) { %>
-        <% if (!property.isInvested()) {%>
-          <button class="toggle_follow">
-            <% if (property.isFollowed()) { %>
-              Quit Following Investments
-            <% } else { %>
-              Follow Investments
-            <% } %>
-          </button>
+<div class='modal-div' style='position: relative;'>
+  <div class='col-md-2'></div>
+  <div class='col-md-10'>
+    <div class='modal-buttons'>
+    <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+      <div class='prop-modal-btns'>
+        <% if (property.get('initial')) { %>
+          <button class="initial_investment">Pending Initial Investment</button>
         <% } %>
-
-        <% if (!property.get('initial')) { %>
-          <% if (!property.isInvested()) { %>
-            <button class="toggle_invest">
-              Invest in this Property
+        <% if (Grounded.CURRENT_USER) { %>
+          <% if (!property.isInvested()) {%>
+            <button class="toggle_follow">
+              <% if (property.isFollowed()) { %>
+                Quit Following Investments
+              <% } else { %>
+                Follow Investments
+              <% } %>
             </button>
-          <% } else { %>
-            <div class='investment_pending'>
-              Investment Pending
-            </div>
+          <% } %>
+
+          <% if (!property.get('initial')) { %>
+            <% if (!property.isInvested()) { %>
+              <button class="toggle_invest">
+                Invest in this Property
+              </button>
+            <% } else { %>
+              <div class='investment_pending'>
+                Investment Pending
+              </div>
+            <% } %>
           <% } %>
         <% } %>
-      <% } %>
+      </div>
+      <div class='modal-invest-form'></div>
     </div>
-    <div class='modal-invest-form'></div>
   </div>
-</div>
 
-<div class='row'>
-  <div class='col-md-5 container'>
-    <div class='default-image' style="width: 90%">
-      <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1440478336/No_image_ovdc02.png" height=300 width=300>
+  <div class='row'>
+    <div class='col-md-5 container'>
+      <div class='default-image' style="width: 90%">
+        <img src="http://res.cloudinary.com/dwhvrflyu/image/upload/v1440478336/No_image_ovdc02.png" height=300 width=100%>
+      </div>
+    </div>
+    <div class='col-md-7 container'>
+      <div class='row'>
+        <h3 id="street-address"><%=property.escape('street_number')%> <%=property.escape('street')%></h3>
+        <h5 id="city-state-zip"><%=property.escape('city')%>, <%=property.escape('state')%>  <%=property.escape('zip')%><br>
+      </div>
+      <div class='row modal-details'>
+        <h5 class='modal-details' id='type'><b>Property Type:</b> <%=property.escape('property_type')%> (Zillow.com)</h5>
+        <h5 class='modal-details' id='area'><b>Area:</b> <%=property.escape('area')%></h5>
+        <h5 class='modal-details' id='zestimate'><b>Zestimate:</b> $<%=parseInt(property.escape('zestimate')).formatMoney(2)%></h5>
+      </div>
+      <div class='row description'>
+        <h5 class='property-description'></b>Description: <%= property.escape('description') %>
+      </div>
+      <div class='row'>
+        <% if (Grounded.CURRENT_USER && (parseInt(Grounded.CURRENT_USER.id) === property.get('user_id')) || Grounded.ADMIN) { %>
+          <button class='upload_image'>Upload Image</button>
+        <% } %>
+      </div>
     </div>
   </div>
-  <div class='col-md-7 container'>
-    <div class='row'>
-      <h3 id="street-address"><%=property.escape('street_number')%> <%=property.escape('street')%></h3>
-      <h5 id="city-state-zip"><%=property.escape('city')%>, <%=property.escape('state')%>  <%=property.escape('zip')%><br>
-    </div>
-    <div class='row modal-details'>
-      <h5 class='modal-details' id='type'><b>Property Type:</b> <%=property.escape('property_type')%> (Zillow.com)</h5>
-      <h5 class='modal-details' id='area'><b>Area:</b> <%=property.escape('area')%></h5>
-      <h5 class='modal-details' id='zestimate'><b>Zestimate:</b> $<%=parseInt(property.escape('zestimate')).formatMoney(2)%></h5>
-    </div>
-    <div class='row description'>
-      <h5 class='property-description'></b>Description: <%= property.escape('description') %>
-    </div>
-    <div class='row'>
-      <% if (Grounded.CURRENT_USER && (parseInt(Grounded.CURRENT_USER.id) === property.get('user_id')) || Grounded.ADMIN) { %>
-        <button class='upload_image'>Upload Image</button>
-      <% } %>
-    </div>
-  </div>
-</div>
 
-<div class='row'>
-  <!-- <div class='col-md-6 container'>
-    <div class='modal-map'></div>
-  </div> -->
-  <div class='col-md-12 container'>
-    <h4 style='float: right; padding: 0 4%; margin-bottom: 0;'> Zillow Zestimates Over the Last Year </h4>
-    <div class='zillow-chart'></div>
+  <div class='row'>
+    <!-- <div class='col-md-6 container'>
+      <div class='modal-map'></div>
+    </div> -->
+    <div class='col-md-12 container'>
+      <h4 style='float: right; padding: 0 4%; margin-bottom: 0;'> Zillow Zestimates Over the Last Year </h4>
+      <div class='zillow-chart'></div>
+    </div>
   </div>
 </div>
