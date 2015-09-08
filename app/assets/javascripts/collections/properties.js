@@ -12,6 +12,8 @@ Grounded.Collections.Properties = Backbone.Collection.extend({
     }
     model.fetch();
     return model;
-  }
+  },
+
+  comparator: 'id'
 
 });

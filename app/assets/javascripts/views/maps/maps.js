@@ -1,4 +1,4 @@
-Grounded.Views.Map = Backbone.View.extend({
+Grounded.Views.Map = Backbone.CompositeView.extend({
 
   tagName: 'div',
   id: 'map-canvas-full-screen',
@@ -44,31 +44,33 @@ Grounded.Views.Map = Backbone.View.extend({
     var view = this;
 
     var marker = new google.maps.Marker({
-      position: { lat: property.get('latitude'), lng: property.get('longitude') },
+      position: { lat: property.get('latitude'),
+                  lng: property.get('longitude') },
       map: this._map,
       title: property.get('street_number') + ' ' + property.get('street'),
       property: property.id
     });
 
+    google.maps.event.addListener(marker, 'mouseover', function (event) {
+      view.scrollToInfo(event, marker, property);
+    });
+
     google.maps.event.addListener(marker, 'click', function (event) {
-      view.showMarkerInfo(event, marker, property);
+      view.showMarkerModal(property.id);
     });
 
     this._markers[property.id] = marker;
   },
 
-  showMarkerInfo: function (event, marker, property) {
-  // This event will be triggered when a marker is clicked. Right now it
-  // simply opens an info window with the title of the marker. However, you
-  // could get fancier if you wanted (maybe use a template for the content of
-  // the window?)
-    $('#' + property.id).animatescroll({element:'#properties'});
+  scrollToInfo: function (event, marker, property) {
+    $('#' + property.get('id')).animatescroll({ element:'html,body',
+                                                padding: 50,
+                                                easing: 'easeInOutCubic' });
 
-    var infoWindow = new google.maps.InfoWindow({
-      content: marker.title
-    });
+  },
 
-    infoWindow.open(this._map, marker);
-}
+  showMarkerModal: function (id) {
+    Grounded.Views.PropertiesIndex.prototype.showMarkerModal(id)
+  },
 
 });

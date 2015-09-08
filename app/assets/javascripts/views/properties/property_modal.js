@@ -54,9 +54,9 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
   },
 
   showDescriptionForm: function () {
-    this.descriptionForm && this.removeSubview('.desc-form', this.descriptionForm);
+    this.$('.desc').empty();
     this.descriptionForm = new Grounded.Views.DescriptionForm({ model: this.model });
-    this.addSubview('.desc-form', this.descriptionForm);
+    this.$('.desc').html(this.descriptionForm.render().$el)
   },
 
   investProperty: function (event) {
@@ -74,7 +74,7 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
     that = this;
     investment.save(investmentAttrs, {
       success: function () {
-        Grounded.investedCollection.add(this.model);
+        Grounded.investedCollection.add(that.model);
         that.model.investments().add(investment);
         that.investFormView.remove();
         bootbox.alert("Great!  A representative will contact you within 24 hours to finalize your investment.");

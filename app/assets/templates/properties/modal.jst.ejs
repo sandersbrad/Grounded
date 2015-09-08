@@ -55,11 +55,11 @@
         <h5 class='modal-details' id='zestimate'><b>Zestimate:</b> $<%=parseInt(property.escape('zestimate')).formatMoney(2)%></h5>
       </div>
       <div class='row description'>
-        <h5 class='property-description'><b>Description:</b> <%= property.escape('description') %><% if (Grounded.CURRENT_USER && (parseInt(Grounded.CURRENT_USER.id) === property.get('user_id')) || Grounded.ADMIN) { %> <span class='edit'> Edit </span> <% } %></h5>
+        <h5 class='property-description'><b>Description:</b> <span class="desc"><%= property.escape('description') %> <% if (Grounded.CURRENT_USER && (parseInt(Grounded.CURRENT_USER.id) === property.get('user_id')) || Grounded.ADMIN) { %> <span class='edit'> edit </span> <% } %></span></h5>
         <div class="desc-form"></div>
       </div>
       <div class='row'>
-        <% if (Grounded.CURRENT_USER && (parseInt(Grounded.CURRENT_USER.id) === property.get('user_id')) || Grounded.ADMIN) { %>
+        <% if ((Grounded.CURRENT_USER && (parseInt(Grounded.CURRENT_USER.id) === property.get('user_id')) && property.images().length === 0) || Grounded.ADMIN) { %>
           <button class='upload_image'>Upload Image</button>
         <% } %>
       </div>
