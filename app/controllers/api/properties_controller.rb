@@ -1,7 +1,7 @@
 class Api::PropertiesController < ApplicationController
 
   def index
-    @properties = Property.includes(:investments).all
+    @properties = Property.includes(:investments).all.order(id: :desc)
   end
 
   def followed

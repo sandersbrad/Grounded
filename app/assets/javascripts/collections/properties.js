@@ -4,6 +4,10 @@ Grounded.Collections.Properties = Backbone.Collection.extend({
 
   model: Grounded.Models.Property,
 
+  comparator: function (model) {
+    return -model.id;
+  },
+
   getOrFetch: function (id) {
     var model = this.get(id);
     if (!model) {
@@ -12,8 +16,6 @@ Grounded.Collections.Properties = Backbone.Collection.extend({
     }
     model.fetch();
     return model;
-  },
-
-  comparator: 'id'
+  }
 
 });
