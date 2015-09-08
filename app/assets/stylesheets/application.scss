@@ -23,6 +23,13 @@ div.splash {
   text-align: center;
 }
 
+div.menus {
+  padding-left: 0;
+  padding-right: 0;
+  height: 73%;
+  overflow-y: scroll;
+}
+
 .submit-description {
   border: 4px solid #000652;
   background: none;
@@ -245,6 +252,7 @@ div.invested {
 
 div.invested.show {
   display: block;
+  height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
   bottom: 0;
@@ -254,8 +262,32 @@ div.followed {
   display: none;
 }
 
+.show::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.show::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.show::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.show::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid #F8F8F8; /* should match background, can't be transparent */
+    background-color: rgba(0, 6, 82, 0.5);
+}
+
+.show::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 8px;
+}
+
 div.followed.show {
   display: block;
+  height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
   bottom: 0;
@@ -411,10 +443,10 @@ span.follow_menu:hover {
 }
 
 span.follow_menu.show {
-  position:relative;
-  float: right;
+  position:absolute;
+  right: 0px;
   color: #000652;
-  background: none;
+  background: #F8F8F8;
   border: 1px solid #000652;
   border-bottom: none;
   overflow: hidden;
