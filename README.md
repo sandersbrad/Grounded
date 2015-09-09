@@ -6,6 +6,7 @@
 
 ![screenshot1]
 ![screenshot2]
+![screenshot3]
 
 ## Minimum Viable Product
 Grounded is a webapp that allows users to invest in real estate together. Users can:
@@ -71,6 +72,7 @@ I'll use Google's API to add a map feature to the properties marketplace.  User'
 
 [screenshot1]: ./app/assets/images/readme/grounded.png
 [screenshot2]: ./app/assets/images/readme/propertyindex.png
+[screenshot3]: ./app/assets/images/readme/propertymodal.png
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
