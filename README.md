@@ -70,7 +70,7 @@ I'll use Google's API to add a map feature to the properties marketplace.  User'
 
 
 [screenshot1]: ./app/assets/images/readme/grounded.png
-[screenshot2]: ./app/assets/images/readme/grounded2.png
+[screenshot2]: ./app/assets/images/readme/propertyindex.png
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
