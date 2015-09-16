@@ -1,13 +1,15 @@
 # Grounded
 
-[Live](www.grounded.us)
+[Live - www.grounded.us](www.grounded.us)
 
 ![screenshot1]
 ![screenshot2]
 ![screenshot3]
 
 ## Features
-Grounded is a webapp that allows users to invest in real estate together. Users can:
+Grounded has a RESTful rails backend serving JSON to a single page Backbone app.
+
+Users can:
 
 - [x] Create accounts
 - [x] Create sessions (log in)
