@@ -1,8 +1,6 @@
 # Grounded
 
-[Heroku link][heroku]
-
-[heroku]
+[Live](www.grounded.us)
 
 ![screenshot1]
 ![screenshot2]
@@ -22,10 +20,20 @@ Grounded is a webapp that allows users to invest in real estate together. Users 
 - [x] View properties on a map
 - [x] Take a tour
 
+## Gems and Libraries
+
+* Geocoder
+* HTTParty
+* Figaro
+* IntroJs
 
 
+## Third Party APIs
 
-[schema]: https://github.com/sandersbrad/Grounded/blob/master/db/schema.rb
+* Google
+* Zillow
+* Cloudinary
+
 
 ## Implementation Timeline
 
@@ -39,7 +47,7 @@ Property `has_many` Follows
 Property `has_many` Investments
 Property `has_many` Investors through Investments
 
-[schema]: https://github.com/sandersbrad/Grounded/blob/master/db/schema.rb
+[schema](https://github.com/sandersbrad/Grounded/blob/master/db/schema.rb)
 
 ### Phase 2: Viewing Properties
 * Namespaced controllers under API and created routes to serve property data as JSON
@@ -49,7 +57,7 @@ Property `has_many` Investors through Investments
 
 ### Phase 3: Investment Research
 * Incorporated Zillow's API to generate statistical data about all properties in the marketplace.
-** HTTParty gem makes Zillow API requests from the server
+  * HTTParty gem makes Zillow API requests from the server
 * Added Bootstrap status bars and allowed users to invest in properties
 
 ### Phase 4: User Homescreen
@@ -59,8 +67,8 @@ Property `has_many` Investors through Investments
 
 ### Phase 5: Adding Properties
 * Created a form for a logged in user to add a property to the marketplace
-** Zillow's API will automatically fill in details.
-** Users can edit descriptions of and upload images (cloudinary) to properties they create
+  * Zillow's API will automatically fill in details.
+  * Users can edit descriptions of and upload images (cloudinary) to properties they create
 
 
 [screenshot1]: ./app/assets/images/readme/grounded.png
