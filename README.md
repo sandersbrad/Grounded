@@ -1,6 +1,6 @@
 # Grounded
 
-[Live - www.grounded.us](www.grounded.us)
+[Live - www.grounded.us](http://www.grounded.us)
 
 ![screenshot1]
 ![screenshot2]
