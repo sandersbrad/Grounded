@@ -63,7 +63,11 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
     if (Grounded.CURRENT_USER) {
       this.newPropSubview && this.newPropSubview.remove();
       var model = new Grounded.Models.Property();
-      this.newPropSubview = new Grounded.Views.NewPropertyIndexItem({ collection: this.collection, model: model });
+      this.newPropSubview = new Grounded.Views.NewPropertyIndexItem({
+                                                              collection:
+                                                              this.collection,
+                                                              model: model
+                                                                     });
       this.addSubview('.properties', this.newPropSubview);
     } else {
       return;

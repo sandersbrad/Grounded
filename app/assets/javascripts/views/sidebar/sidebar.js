@@ -3,9 +3,7 @@ Grounded.Views.Sidebar = Backbone.View.extend({
   className: 'side-cont',
 
   initialize: function () {
-    // this.listenTo(Grounded.followCollection, 'change sync', this.render);
     this.listenTo(Grounded.followCollection, 'add remove', this.clickFollow);
-    // this.listenTo(Grounded.investedCollection, 'change sync', this.render);
     this.listenTo(Grounded.investedCollection, 'add remove', this.clickInvested);
   },
 
@@ -13,8 +11,14 @@ Grounded.Views.Sidebar = Backbone.View.extend({
     this.$el.html(this.template());
 
     if (Grounded.CURRENT_USER) {
-      var followView = new Grounded.Views.FollowPropertiesIndex({ collection: Grounded.followCollection });
-      var investedView = new Grounded.Views.InvestedPropertiesIndex({ collection: Grounded.investedCollection });
+      var followView = new Grounded.Views.FollowPropertiesIndex({
+                                                      collection:
+                                                      Grounded.followCollection
+                                                                });
+      var investedView = new Grounded.Views.InvestedPropertiesIndex({
+                                                      collection:
+                                                      Grounded.investedCollection
+                                                                });
 
       this.$('.invested').html(investedView.render().$el);
       this.$('.followed').html(followView.render().$el);
@@ -29,6 +33,6 @@ Grounded.Views.Sidebar = Backbone.View.extend({
 
   clickInvested: function () {
     $('.invest_menu').click();
-  },
+  }
 
 });

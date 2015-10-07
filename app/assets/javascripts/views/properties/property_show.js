@@ -27,8 +27,6 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
 
       this.$('.item:first').addClass('active');
     }
-    this.addMap();
-    this.mapView.initMap();
     this.addZillowChart();
   },
 
@@ -59,14 +57,5 @@ Grounded.Views.PropertyShow = Backbone.View.extend({
 
                                    model.save({},{});
                                  }.bind(this));
-  },
-
-  addMap: function () {
-    this.mapView = new Grounded.Views.Map({ model: this.model });
-    this.$('.map-show').html(this.mapView.$el);
   }
-
-
-
-
 });

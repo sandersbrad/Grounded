@@ -9,7 +9,6 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
     this.listenTo(this.model.current_user_follow(), 'change', this.render);
     this.listenTo(this.model.current_user_invested(), 'change', this.render);
     this.listenTo(this.model.images(), 'add', this.render);
-    // this.addMap();
   },
 
   events: {
@@ -146,12 +145,6 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
                                      }
                                    });
                                  }.bind(this));
-  },
-
-  // addMap: function () {
-  //   this.mapView = new Grounded.Views.Map({ model: this.model });
-  //   this.addSubview('.modal-map', this.mapView);
-  //   this.mapView.initMap();
-  // }
+  }
 
 });

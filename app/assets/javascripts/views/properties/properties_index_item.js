@@ -16,6 +16,9 @@ Grounded.Views.PropertiesIndexItem = Backbone.View.extend({
     return this;
   },
 
+
+  // To add follow and investing capablities to propertyIndexItems in later versions
+  //
   // investProperty: function () {
   //   this.model.current_user_invested().save({ property_id: this.model.id,
   //                                             user_id: Grounded.CURRENT_USER.id },
