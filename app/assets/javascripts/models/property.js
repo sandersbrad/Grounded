@@ -11,7 +11,7 @@ Grounded.Models.Property = Backbone.Model.extend({
     if (response.current_user_invested) {
       this.current_user_invested().set(response.current_user_invested);
     }
-    // Makes an array of property images for use in carousel
+    // Makes an array of property images for use in carousel (later implementation)
     if (response.images) {
       this.images().set(response.images);
     }
