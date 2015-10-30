@@ -42,7 +42,9 @@ Grounded.Views.PropertyModal = Backbone.CompositeView.extend({
   },
 
   addZillowChart: function () {
-    this.$('.zillow-chart').html('<img src=' + this.model.get('zillow_chart') + ' style="margin: auto; display: block">');
+    if (this.model.get('zillow_chart')) {
+      this.$('.zillow-chart').html('<img src=' + this.model.get('zillow_chart') + ' style="margin: auto; display: block">');
+    }
   },
 
 
