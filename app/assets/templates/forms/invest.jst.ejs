@@ -1,6 +1,10 @@
 <form style='padding-left: 5%;' class="inv-form">
   Percent to Invest:
-  <input type="number" name="percentage" class='perc' min="1" max="<%= 100 - property.investments().total_overall() %>">
+  <input type="number"
+         name="percentage"
+         class='perc'
+         min="1"
+         max="<%= 100 - property.investments().total_overall() %>">
   <input class='submit' type='submit' value='Submit'>
   <div class='percVal'></div>
 </form>

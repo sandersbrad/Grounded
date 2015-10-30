@@ -9,25 +9,25 @@
         <%= link_to "Why Grounded?", '/#slider', :class => 'btn btn-default btn-lg splash' %> -->
         <!-- <%= link_to "Invest in Properties", '/home', :class => 'btn btn-default btn-lg splash' %> -->
         <br>
-        <button type="button" class="btn btn-primary btn-lg splash"
-                              data-toggle="modal"
-                              data-target="#SignIn">
-          Sign In
-        </button>
-        <button type="button" class="btn btn-primary btn-lg splash"
-                              data-toggle="modal"
-                              data-target="#SignUp">
-          Sign Up
-        </button>
-        <form action='<%=session_url%>' method='post' style='display: inline-block;'>
+        <form action='<%=session_url%>' method='post' style='display: inline;'>
           <%= auth_token_input %>
           <input type='hidden' name='user[email]'
                                value='guest@grounded.com'>
           <input type='hidden' name='user[password]'
                                value='password'>
-          <input type='submit' class='btn btn-primary btn-lg splash'
+          <input type='submit' class='grounded_button'
                                value='Guest Log In'>
         </form>
+        <button type="button" class="grounded_button"
+                              data-toggle="modal"
+                              data-target="#SignIn">
+          Sign In
+        </button>
+        <button type="button" class="grounded_button"
+                              data-toggle="modal"
+                              data-target="#SignUp">
+          Sign Up
+        </button>
       </div>
     </div>
   </div>
