@@ -4,6 +4,7 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this._subviews = {};
+    setInterval(this.blinker, 50);
     this.listenTo(this.collection, 'add', this.addPropertyView);
     this.listenTo(this.collection, 'sync', this.addMapSubview);
     this.collection.each(this.addPropertyView.bind(this));
@@ -40,6 +41,10 @@ Grounded.Views.PropertiesIndex = Backbone.CompositeView.extend({
 
   removeModal: function () {
     this._currentModal && this._currentModal.remove();
+  },
+
+  blinker: function () {
+    $('.about').fadeIn(500).fadeOut(500);
   },
 
   showModal: function (event) {
